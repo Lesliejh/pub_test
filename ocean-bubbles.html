@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>海洋泡泡 - Ocean Bubbles</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Noto Sans SC', sans-serif;
+    background: #0a1628;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  /* ---- HUD 顶部信息栏 ---- */
+  #hud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: linear-gradient(180deg, rgba(10, 30, 60, 0.85) 0%, rgba(10, 30, 60, 0) 100%);
+    pointer-events: none;
+  }
+  #hud > * { pointer-events: auto; }
+
+  .hud-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #c8e6ff;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px rgba(100, 180, 255, 0.5);
+  }
+  .hud-icon { font-size: 22px; }
+  .hud-value {
+    font-weight: 700;
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 0 0 18px rgba(140, 210, 255, 0.7);
+    min-width: 48px;
+    text-align: center;
+  }
+  #score-pop {
+    position: fixed;
+    z-index: 11;
+    pointer-events: none;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    text-shadow: 0 0 14px rgba(255, 255, 200, 0.8);
+    animation: scoreFloat 0.8s ease-out forwards;
+  }
+  @keyframes scoreFloat {
+    0%   { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-60px) scale(1.3); }
+  }
+
+  /* ---- 静音按钮 ---- */
+  #mute-btn {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    z-index: 15;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #mute-btn:hover {
+    background: rgba(255,255,255,0.16);
+    border-color: rgba(255,255,255,0.35);
+  }
+
+  /* ---- 开始界面 ---- */
+  #start-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 15, 35, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: opacity 0.6s, visibility 0.6s;
+  }
+  #start-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  #start-overlay h1 {
+    font-size: 52px;
+    font-weight: 700;
+    color: #e0f0ff;
+    text-shadow: 0 0 40px rgba(100, 180, 255, 0.6), 0 4px 8px rgba(0,0,0,0.4);
+    margin-bottom: 8px;
+    letter-spacing: 6px;
+  }
+  #start-overlay .subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    color: #90c8f0;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+  }
+  #start-btn {
+    padding: 14px 56px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: inherit;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(60, 140, 220, 0.5), rgba(30, 100, 180, 0.5));
+    border: 1px solid rgba(140, 200, 255, 0.4);
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 4px;
+    transition: all 0.35s;
+    text-shadow: 0 0 8px rgba(200,230,255,0.5);
+    box-shadow: 0 0 24px rgba(60, 140, 220, 0.3);
+  }
+  #start-btn:hover {
+    background: linear-gradient(135deg, rgba(80, 160, 240, 0.6), rgba(50, 120, 200, 0.6));
+    box-shadow: 0 0 40px rgba(80, 160, 240, 0.5);
+    transform: scale(1.04);
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<div id="hud">
+  <div class="hud-item">
+    <span class="hud-icon">💎</span>
+    <span>得分</span>
+    <span class="hud-value" id="score-display">0</span>
+  </div>
+  <div class="hud-item">
+    <span class="hud-icon">⏱</span>
+    <span class="hud-value" id="timer-display">00:00</span>
+  </div>
+</div>
+
+<button id="mute-btn" title="静音 / 取消静音">🔊</button>
+
+<div id="start-overlay">
+  <h1>🌊 海洋泡泡</h1>
+  <p class="subtitle">轻触泡泡 · 放松身心</p>
+  <button id="start-btn">开 始 游 戏</button>
+</div>
+
+<script>
+// ============================================================
+//  海洋泡泡消除游戏 - Ocean Bubbles
+// ============================================================
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+// ---- DOM 元素 ----
+const scoreDisplay = document.getElementById('score-display');
+const timerDisplay = document.getElementById('timer-display');
+const startOverlay = document.getElementById('start-overlay');
+const startBtn = document.getElementById('start-btn');
+const muteBtn = document.getElementById('mute-btn');
+
+// ---- 游戏状态 ----
+let score = 0;
+let gameTime = 0;           // 秒
+let isRunning = false;
+let lastTimestamp = 0;
+let bubbleSpawnTimer = 0;
+let bubbleSpawnInterval = 0.8; // 秒
+
+const bubbles = [];
+const particles = [];
+const ambientDots = [];
+
+// 设备像素比（限制为最高2倍，避免性能问题）
+const dpr = Math.min(window.devicePixelRatio || 1, 2);
+let W, H; // 逻辑像素宽高
+
+// ---- 泡泡颜色调色板 (RGB) ----
+const BUBBLE_COLORS = [
+  [255, 120, 160], // 粉红
+  [100, 200, 255], // 天蓝
+  [130, 240, 160], // 薄荷绿
+  [255, 210, 100], // 金色
+  [180, 140, 255], // 淡紫
+  [255, 150, 100], // 橙色
+  [100, 240, 210], // 青绿
+  [255, 180, 220], // 浅粉
+  [140, 220, 255], // 浅蓝
+];
+
+// ============================================================
+//  音频引擎 - 平和愉悦的背景音乐
+// ============================================================
+class AudioEngine {
+  constructor() {
+    this.ctx = null;
+    this.masterGain = null;
+    this.isMuted = false;
+    this.isInitialized = false;
+
+    // 背景和弦铺底
+    this.padOscs = [];
+    this.padFilter = null;
+    this.padLFOGain = null;
+
+    // 旋律
+    this.melodyOsc = null;
+    this.melodyGain = null;
+    this.melodyFilter = null;
+    this.melodyNoteIdx = 0;
+    this.melodyNextTime = 0;
+    this.melodyNoteDuration = 0;
+
+    // 延迟/混响
+    this.delayNode = null;
+    this.delayGain = null;
+  }
+
+  init() {
+    if (this.isInitialized) return;
+    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+    // --- 主输出 ---
+    this.masterGain = this.ctx.createGain();
+    this.masterGain.gain.value = 0.35;
+    this.masterGain.connect(this.ctx.destination);
+
+    // --- 延迟效果（模拟水下混响） ---
+    this.delayNode = this.ctx.createDelay(0.6);
+    this.delayNode.delayTime.value = 0.35;
+    this.delayGain = this.ctx.createGain();
+    this.delayGain.gain.value = 0.25;
+    this.delayNode.connect(this.delayGain);
+    this.delayGain.connect(this.delayNode); // 反馈
+    this.delayGain.connect(this.masterGain);
+
+    // --- 和弦铺底 ---
+    this.padFilter = this.ctx.createBiquadFilter();
+    this.padFilter.type = 'lowpass';
+    this.padFilter.frequency.value = 350;
+    this.padFilter.Q.value = 0.4;
+
+    // LFO 缓慢调制滤波器截止频率
+    const padLFO = this.ctx.createOscillator();
+    padLFO.type = 'sine';
+    padLFO.frequency.value = 0.08; // 非常慢的扫描
+    this.padLFOGain = this.ctx.createGain();
+    this.padLFOGain.gain.value = 120;
+    padLFO.connect(this.padLFOGain);
+    this.padLFOGain.connect(this.padFilter.frequency);
+    padLFO.start();
+
+    this.padFilter.connect(this.masterGain);
+    this.padFilter.connect(this.delayNode);
+
+    // C大三和弦 + 九音：C3, E3, G3, D4（营造开阔感）
+    const chordFreqs = [130.81, 164.81, 196.00, 293.66];
+    chordFreqs.forEach(freq => {
+      const osc = this.ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      osc.detune.value = (Math.random() - 0.5) * 8; // 轻微失谐增加温暖感
+
+      const gain = this.ctx.createGain();
+      gain.gain.value = 0;
+
+      osc.connect(gain);
+      gain.connect(this.padFilter);
+
+      // 缓慢淡入
+      gain.gain.linearRampToValueAtTime(0.045, this.ctx.currentTime + 2.5);
+
+      osc.start();
+      this.padOscs.push({ osc, gain });
+    });
+
+    // --- 旋律线 ---
+    this.melodyFilter = this.ctx.createBiquadFilter();
+    this.melodyFilter.type = 'lowpass';
+    this.melodyFilter.frequency.value = 800;
+    this.melodyFilter.Q.value = 0.6;
+    this.melodyFilter.connect(this.masterGain);
+    this.melodyFilter.connect(this.delayNode);
+
+    this.melodyOsc = this.ctx.createOscillator();
+    this.melodyOsc.type = 'sine';
+    this.melodyOsc.frequency.value = 440;
+
+    this.melodyGain = this.ctx.createGain();
+    this.melodyGain.gain.value = 0;
+
+    this.melodyOsc.connect(this.melodyGain);
+    this.melodyGain.connect(this.melodyFilter);
+    this.melodyOsc.start();
+
+    // 五声音阶（高八度）- C5到A5
+    this.pentatonicScale = [523.25, 587.33, 659.25, 783.99, 880.00];
+
+    this.isInitialized = true;
+  }
+
+  /** 播放一个旋律音符 */
+  scheduleMelodyNote() {
+    if (!this.isInitialized || this.isMuted) return;
+    const now = this.ctx.currentTime;
+
+    // 下一个音符：偏向相邻音
+    const scale = this.pentatonicScale;
+    let nextIdx;
+    if (Math.random() < 0.55) {
+      // 相邻
+      const step = Math.random() < 0.5 ? -1 : 1;
+      nextIdx = Math.max(0, Math.min(scale.length - 1, this.melodyNoteIdx + step));
+    } else if (Math.random() < 0.7) {
+      // 跳两格
+      const step = Math.random() < 0.5 ? -2 : 2;
+      nextIdx = Math.max(0, Math.min(scale.length - 1, this.melodyNoteIdx + step));
+    } else {
+      // 随机
+      nextIdx = Math.floor(Math.random() * scale.length);
+    }
+    this.melodyNoteIdx = nextIdx;
+
+    const freq = scale[nextIdx];
+    const duration = 2.2 + Math.random() * 3.0; // 2.2-5.2 秒
+    const attack = 0.5;
+    const release = 0.6;
+
+    this.melodyOsc.frequency.linearRampToValueAtTime(freq, now + 0.04);
+    this.melodyGain.gain.cancelScheduledValues(now);
+    this.melodyGain.gain.setValueAtTime(0, now);
+    this.melodyGain.gain.linearRampToValueAtTime(0.055, now + attack);
+    this.melodyGain.gain.linearRampToValueAtTime(0.055, now + duration - release);
+    this.melodyGain.gain.linearRampToValueAtTime(0, now + duration);
+
+    return now + duration;
+  }
+
+  /** 播放泡泡破裂音效 */
+  playPopSound(baseFreq = 600) {
+    if (!this.isInitialized || this.isMuted) return;
+    const now = this.ctx.currentTime;
+
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = baseFreq + Math.random() * 300;
+    osc.frequency.linearRampToValueAtTime(180 + Math.random() * 100, now + 0.08);
+
+    gain.gain.setValueAtTime(0.12, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+    osc.connect(gain);
+    gain.connect(this.masterGain);
+
+    // 也送一点到延迟
+    const dryGain = this.ctx.createGain();
+    dryGain.gain.value = 0.3;
+    gain.connect(dryGain);
+    dryGain.connect(this.delayNode);
+
+    osc.start(now);
+    osc.stop(now + 0.14);
+  }
+
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+    if (this.masterGain) {
+      this.masterGain.gain.value = this.isMuted ? 0 : 0.35;
+    }
+    muteBtn.textContent = this.isMuted ? '🔇' : '🔊';
+    return this.isMuted;
+  }
+}
+
+const audio = new AudioEngine();
+
+// ============================================================
+//  游戏对象
+// ============================================================
+
+/** 泡泡 */
+class Bubble {
+  constructor() {
+    this.reset();
+    // 初始时随机分布在屏幕各处（用于开始前的预览）
+    this.y = Math.random() * H * 1.2 - H * 0.2;
+    this.spawnedBeforeGame = true;
+  }
+
+  reset() {
+    const color = BUBBLE_COLORS[Math.floor(Math.random() * BUBBLE_COLORS.length)];
+    this.color = color;
+    this.radius = 22 + Math.random() * 45;          // 22-67px
+    this.x = this.radius + Math.random() * (W - this.radius * 2);
+    this.y = H + this.radius + Math.random() * 120;  // 从底部以下冒出
+    this.speed = 35 + Math.random() * 70;            // 35-105 px/s
+    this.wobbleAmp = 8 + Math.random() * 28;         // 水平摆动幅度
+    this.wobbleFreq = 0.6 + Math.random() * 1.8;     // 摆动频率 Hz
+    this.wobblePhase = Math.random() * Math.PI * 2;
+    this.opacity = 0.28 + Math.random() * 0.28;      // 0.28-0.56
+    this.alive = true;
+    this.spawnedBeforeGame = false;
+    this.birthTime = gameTime;
+  }
+
+  update(dt) {
+    this.y -= this.speed * dt;
+    // 水平正弦摆动
+    this.x += Math.sin(gameTime * this.wobbleFreq + this.wobblePhase) * this.wobbleAmp * dt;
+
+    // 边界回弹（水平）
+    if (this.x - this.radius < 0) {
+      this.x = this.radius;
+    } else if (this.x + this.radius > W) {
+      this.x = W - this.radius;
+    }
+
+    // 检查是否移出屏幕顶部
+    if (this.y + this.radius < -10) {
+      this.alive = false;
+    }
+  }
+
+  draw(ctx) {
+    const { x, y, radius, color, opacity } = this;
+    const [r, g, b] = color;
+
+    ctx.save();
+
+    // 主体：径向渐变
+    const grad = ctx.createRadialGradient(
+      x - radius * 0.28, y - radius * 0.28, radius * 0.08,
+      x, y, radius
+    );
+    grad.addColorStop(0, `rgba(${Math.min(255, r + 80)},${Math.min(255, g + 80)},${Math.min(255, b + 80)},${opacity * 1.6})`);
+    grad.addColorStop(0.45, `rgba(${r},${g},${b},${opacity})`);
+    grad.addColorStop(1, `rgba(${r},${g},${b},${opacity * 0.55})`);
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // 边缘描边
+    ctx.strokeStyle = `rgba(${Math.min(255, r + 100)},${Math.min(255, g + 100)},${Math.min(255, b + 100)},${opacity * 0.7})`;
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    // 高光反射
+    const shineX = x - radius * 0.28;
+    const shineY = y - radius * 0.32;
+    const shineRx = radius * 0.32;
+    const shineRy = radius * 0.14;
+
+    ctx.beginPath();
+    ctx.ellipse(shineX, shineY, shineRx, shineRy, -Math.PI / 4.5, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.7})`;
+    ctx.fill();
+
+    // 小高光点
+    ctx.beginPath();
+    ctx.arc(shineX - radius * 0.08, shineY - radius * 0.04, radius * 0.06, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${opacity * 0.85})`;
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  contains(px, py) {
+    const dx = px - this.x;
+    const dy = py - this.y;
+    return dx * dx + dy * dy <= this.radius * this.radius;
+  }
+}
+
+/** 破裂粒子 */
+class Particle {
+  constructor(x, y, color) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 60 + Math.random() * 200;
+    this.x = x;
+    this.y = y;
+    this.vx = Math.cos(angle) * speed;
+    this.vy = Math.sin(angle) * speed - 40; // 略微向上
+    this.radius = 2 + Math.random() * 6;
+    this.color = color;
+    this.life = 0.4 + Math.random() * 0.5;  // 0.4-0.9 秒
+    this.age = 0;
+    this.alive = true;
+  }
+
+  update(dt) {
+    this.age += dt;
+    if (this.age >= this.life) {
+      this.alive = false;
+      return;
+    }
+    this.x += this.vx * dt;
+    this.y += this.vy * dt;
+    // 水中阻力
+    this.vx *= 0.96;
+    this.vy *= 0.96;
+    this.vy += 15 * dt; // 轻微上浮
+  }
+
+  draw(ctx) {
+    const progress = this.age / this.life;
+    const alpha = 1 - progress;
+    const [r, g, b] = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius * (1 - progress * 0.5), 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 0.8})`;
+    ctx.fill();
+  }
+}
+
+/** 环境微光点（深海浮游生物） */
+class AmbientDot {
+  constructor() {
+    this.reset(true);
+  }
+
+  reset(initial = false) {
+    this.x = Math.random() * W;
+    this.y = initial ? Math.random() * H : H + 10;
+    this.radius = 0.5 + Math.random() * 2;
+    this.speed = 8 + Math.random() * 25;
+    this.opacity = 0.08 + Math.random() * 0.22;
+    this.hue = 180 + Math.random() * 60; // 蓝-青色范围
+    this.wobbleAmp = 4 + Math.random() * 10;
+    this.wobbleFreq = 0.3 + Math.random() * 1.2;
+    this.wobblePhase = Math.random() * Math.PI * 2;
+    this.alive = true;
+  }
+
+  update(dt) {
+    this.y -= this.speed * dt;
+    this.x += Math.sin(gameTime * this.wobbleFreq + this.wobblePhase) * this.wobbleAmp * dt;
+    if (this.y < -10) {
+      this.reset();
+    }
+  }
+
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `hsla(${this.hue}, 60%, 70%, ${this.opacity})`;
+    ctx.fill();
+  }
+}
+
+// ============================================================
+//  初始化场景
+// ============================================================
+
+function resizeCanvas() {
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.scale(dpr, dpr);
+}
+
+function createAmbientDots(count) {
+  for (let i = 0; i < count; i++) {
+    ambientDots.push(new AmbientDot());
+  }
+}
+
+function createInitialBubbles(count) {
+  for (let i = 0; i < count; i++) {
+    const b = new Bubble();
+    b.y = Math.random() * H * 0.9 + H * 0.05;
+    b.spawnedBeforeGame = true;
+    bubbles.push(b);
+  }
+}
+
+// ============================================================
+//  绘制背景
+// ============================================================
+
+function drawBackground(ctx) {
+  // 深海渐变
+  const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+  bgGrad.addColorStop(0, '#0e3a5c');
+  bgGrad.addColorStop(0.25, '#0c2d4a');
+  bgGrad.addColorStop(0.55, '#091f38');
+  bgGrad.addColorStop(0.8, '#061428');
+  bgGrad.addColorStop(1, '#040e1c');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  // 光线（从水面照射下来）
+  ctx.save();
+  ctx.globalCompositeOperation = 'lighter';
+  const lightRays = [
+    { x: W * 0.15, w: 60, a: 0.04 },
+    { x: W * 0.32, w: 90, a: 0.06 },
+    { x: W * 0.5,  w: 50, a: 0.03 },
+    { x: W * 0.68, w: 80, a: 0.05 },
+    { x: W * 0.82, w: 70, a: 0.04 },
+  ];
+  lightRays.forEach(ray => {
+    const grad = ctx.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0, `rgba(120,210,255,${ray.a})`);
+    grad.addColorStop(0.35, `rgba(80,160,220,${ray.a * 0.4})`);
+    grad.addColorStop(1, 'rgba(30,80,140,0)');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.moveTo(ray.x - ray.w * 0.15, 0);
+    ctx.lineTo(ray.x + ray.w * 1.5, H);
+    ctx.lineTo(ray.x - ray.w * 1.2, H);
+    ctx.closePath();
+    ctx.fill();
+  });
+  ctx.restore();
+
+  // 水面波纹光效
+  ctx.save();
+  ctx.globalCompositeOperation = 'lighter';
+  for (let i = 0; i < 8; i++) {
+    const wy = 20 + i * 40;
+    const alpha = 0.015 + Math.sin(gameTime * 0.5 + i) * 0.008;
+    const grad = ctx.createLinearGradient(0, wy - 15, 0, wy + 15);
+    grad.addColorStop(0, 'rgba(100,180,230,0)');
+    grad.addColorStop(0.5, `rgba(140,200,240,${alpha})`);
+    grad.addColorStop(1, 'rgba(100,180,230,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, wy - 15, W, 30);
+  }
+  ctx.restore();
+}
+
+// ============================================================
+//  分数弹出动画
+// ============================================================
+
+function showScorePop(x, y) {
+  const el = document.createElement('div');
+  el.id = 'score-pop';
+  el.textContent = '+1';
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+  document.body.appendChild(el);
+  el.addEventListener('animationend', () => el.remove());
+}
+
+// ============================================================
+//  游戏循环
+// ============================================================
+
+function spawnBubble() {
+  bubbles.push(new Bubble());
+  // 限制最大泡泡数
+  const maxBubbles = 35;
+  if (bubbles.length > maxBubbles) {
+    // 移除最老的（最底部或最不活跃的）泡泡
+    bubbles.sort((a, b) => a.y - b.y);
+    while (bubbles.length > maxBubbles) {
+      bubbles.shift();
+    }
+  }
+}
+
+function update(dt) {
+  if (!isRunning) {
+    // 未开始时：仅更新背景动画（环境光点）
+    ambientDots.forEach(d => d.update(dt));
+    // 预览泡泡缓慢上浮
+    bubbles.forEach(b => {
+      if (b.spawnedBeforeGame) {
+        b.y -= b.speed * 0.3 * dt;
+        b.x += Math.sin(gameTime * b.wobbleFreq + b.wobblePhase) * b.wobbleAmp * 0.3 * dt;
+        if (b.y + b.radius < -10) {
+          b.y = H + b.radius + Math.random() * 60;
+          b.x = b.radius + Math.random() * (W - b.radius * 2);
+        }
+      }
+    });
+    return;
+  }
+
+  // 更新时间
+  gameTime += dt;
+
+  // 更新计时器显示（每秒刷新一次）
+  const seconds = Math.floor(gameTime);
+  if (seconds !== Math.floor(gameTime - dt)) {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    timerDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
+  // 生成泡泡
+  bubbleSpawnTimer += dt;
+  // 随游戏进程略微加快生成速度
+  const currentInterval = Math.max(0.35, bubbleSpawnInterval - gameTime * 0.003);
+  if (bubbleSpawnTimer >= currentInterval) {
+    bubbleSpawnTimer -= currentInterval;
+    spawnBubble();
+  }
+
+  // 更新泡泡
+  for (const bubble of bubbles) {
+    if (bubble.alive) bubble.update(dt);
+  }
+
+  // 移除死亡泡泡
+  for (let i = bubbles.length - 1; i >= 0; i--) {
+    if (!bubbles[i].alive) bubbles.splice(i, 1);
+  }
+
+  // 更新粒子
+  for (const particle of particles) {
+    if (particle.alive) particle.update(dt);
+  }
+  for (let i = particles.length - 1; i >= 0; i--) {
+    if (!particles[i].alive) particles.splice(i, 1);
+  }
+
+  // 更新环境光点
+  for (const dot of ambientDots) {
+    dot.update(dt);
+  }
+
+  // 更新旋律
+  if (audio.isInitialized && !audio.isMuted && audio.ctx.currentTime >= audio.melodyNextTime) {
+    const nextTime = audio.scheduleMelodyNote();
+    audio.melodyNextTime = nextTime;
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  // 背景
+  drawBackground(ctx);
+
+  // 环境光点
+  ambientDots.forEach(d => d.draw(ctx));
+
+  // 泡泡（按 y 排序让远处的先画）
+  const sortedBubbles = [...bubbles].sort((a, b) => a.y - b.y);
+  sortedBubbles.forEach(b => {
+    if (b.alive) b.draw(ctx);
+  });
+
+  // 粒子（顶层）
+  particles.forEach(p => {
+    if (p.alive) p.draw(ctx);
+  });
+}
+
+function gameLoop(timestamp) {
+  if (lastTimestamp === 0) lastTimestamp = timestamp;
+  let dt = (timestamp - lastTimestamp) / 1000;
+  lastTimestamp = timestamp;
+
+  // 防止大 delta（切标签页后恢复）
+  if (dt > 0.2) dt = 0.016;
+
+  update(dt);
+  draw();
+  requestAnimationFrame(gameLoop);
+}
+
+// ============================================================
+//  事件处理
+// ============================================================
+
+function handleInteraction(ex, ey) {
+  if (!isRunning) return;
+
+  // 从上层到下层检查泡泡（后画的在上面）
+  for (let i = bubbles.length - 1; i >= 0; i--) {
+    const b = bubbles[i];
+    if (!b.alive) continue;
+    if (b.contains(ex, ey)) {
+      // 消除泡泡
+      b.alive = false;
+      score++;
+      scoreDisplay.textContent = score;
+
+      // 粒子效果
+      const particleCount = 8 + Math.floor(Math.random() * 10);
+      for (let j = 0; j < particleCount; j++) {
+        particles.push(new Particle(b.x, b.y, b.color));
+      }
+
+      // 分数弹出
+      showScorePop(ex, ey);
+
+      // 破裂音效（音高与泡泡大小相关）
+      const baseFreq = 700 - (b.radius / 67) * 350; // 大泡泡->低音，小泡泡->高音
+      audio.playPopSound(baseFreq);
+
+      break; // 每次点击只消除一个
+    }
+  }
+}
+
+canvas.addEventListener('click', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  handleInteraction(x, y);
+});
+
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  const rect = canvas.getBoundingClientRect();
+  const touch = e.touches[0];
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+  handleInteraction(x, y);
+}, { passive: false });
+
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  // 重新分布环境光点
+  ambientDots.forEach(d => d.reset());
+});
+
+muteBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  audio.toggleMute();
+});
+
+startBtn.addEventListener('click', () => {
+  // 初始化并启动音频
+  audio.init();
+  if (audio.ctx.state === 'suspended') {
+    audio.ctx.resume();
+  }
+  // 播放第一个旋律音符
+  audio.melodyNextTime = audio.ctx.currentTime + 0.3;
+  audio.scheduleMelodyNote();
+
+  // 隐藏开始界面
+  startOverlay.classList.add('hidden');
+
+  // 标记游戏开始
+  isRunning = true;
+  gameTime = 0;
+  score = 0;
+  scoreDisplay.textContent = '0';
+  timerDisplay.textContent = '00:00';
+
+  // 清除预览泡泡，生成初始泡泡
+  bubbles.length = 0;
+  for (let i = 0; i < 6; i++) {
+    const b = new Bubble();
+    b.y = H * 0.3 + Math.random() * H * 0.6;
+    bubbles.push(b);
+  }
+});
+
+// ============================================================
+//  启动
+// ============================================================
+
+resizeCanvas();
+createAmbientDots(50);
+createInitialBubbles(8);
+
+// 开始前让泡泡也慢慢动
+lastTimestamp = performance.now();
+requestAnimationFrame(gameLoop);
+</script>
+</body>
+</html>

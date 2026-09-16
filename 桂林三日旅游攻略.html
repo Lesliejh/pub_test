@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>桂林山水 · 三日在地沉浸之旅 | 2026.8.14-8.16</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #4a4a4a;
+    --ink-lighter: #888;
+    --paper: #fdfaf5;
+    --paper-warm: #faf6ee;
+    --accent-stone: #8b7e6a;
+    --accent-water: #3a7d8c;
+    --accent-vermillion: #c44f3c;
+    --accent-bamboo: #5a7d4a;
+    --accent-gold: #c4a44a;
+    --border: #e5ded4;
+    --card-bg: #fffefb;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 20px rgba(0,0,0,.07);
+    --radius: 14px;
+    --radius-lg: 20px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: "PingFang SC","Microsoft YaHei","Noto Serif SC",serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.85;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== SLIDE SYSTEM ===== */
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 8vw;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== COVER ===== */
+  .slide-cover {
+    background: linear-gradient(165deg, #1a2f28 0%, #1f3a30 25%, #2a4a3a 50%, #1f3a30 75%, #152820 100%);
+    color: #e8e0d5;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide-cover .crest {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,.3));
+    letter-spacing: .08em;
+  }
+  .slide-cover h1 {
+    font-family: "PingFang SC","Microsoft YaHei","Noto Serif SC",serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 900;
+    letter-spacing: .06em;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 16px rgba(0,0,0,.3);
+  }
+  .slide-cover .tagline {
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    opacity: .75;
+    font-style: italic;
+    margin-bottom: 28px;
+    letter-spacing: .04em;
+  }
+  .slide-cover .meta-strip {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: .88rem;
+    opacity: .8;
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  .slide-cover .meta-strip span {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 24px;
+    padding: 8px 18px;
+    backdrop-filter: blur(6px);
+  }
+  .cover-mountains {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    pointer-events: none;
+    opacity: .6;
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .slide-section {
+    background: linear-gradient(135deg, #1f3a30, #162820);
+    color: #e8e0d5;
+    align-items: center;
+    text-align: center;
+  }
+  .slide-section h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: .04em;
+    position: relative;
+    z-index: 1;
+  }
+  .slide-section .sec-label {
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    opacity: .5;
+    margin-bottom: 8px;
+  }
+  .slide-section .sec-num {
+    font-size: 8rem;
+    font-weight: 900;
+    opacity: .06;
+    position: absolute;
+    top: 50%;
+    right: 6vw;
+    transform: translateY(-50%);
+    line-height: 1;
+  }
+
+  /* ===== CONTENT SLIDES ===== */
+  .slide-content h2 {
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 6px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    letter-spacing: .02em;
+  }
+  .slide-content h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 28px 0 10px;
+    letter-spacing: .02em;
+  }
+  .slide-content .section-lead {
+    color: var(--ink-lighter);
+    font-size: .95rem;
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  /* ===== PHILOSOPHY QUOTE ===== */
+  .quote-block {
+    background: var(--card-bg);
+    border-left: 4px solid var(--accent-stone);
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-style: italic;
+    color: var(--ink-light);
+    font-size: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .quote-block .attribution {
+    font-style: normal;
+    font-size: .85rem;
+    color: var(--ink-lighter);
+    margin-top: 8px;
+  }
+
+  /* ===== CARDS ===== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin: 16px 0;
+  }
+  .card-grid.col2 { grid-template-columns: 1fr 1fr; }
+  .card-grid.col3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 768px) {
+    .card-grid.col2, .card-grid.col3 { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 22px 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    transition: box-shadow .25s, transform .25s;
+  }
+  .card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.1); transform: translateY(-1px); }
+  .card .card-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .card h4 {
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .card p, .card li { font-size: .9rem; color: var(--ink-light); line-height: 1.65; }
+  .card ul { padding-left: 18px; margin-top: 4px; }
+  .card li { margin-bottom: 4px; }
+
+  /* ===== HOTEL CARD ===== */
+  .hotel-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    margin-bottom: 14px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .hotel-card .hotel-badge {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+  }
+  .hotel-card .hotel-info { flex: 1; }
+  .hotel-card .hotel-info h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+  .hotel-card .hotel-info .price { font-size: .9rem; color: var(--accent-vermillion); font-weight: 700; }
+  .hotel-card .hotel-info p { font-size: .88rem; color: var(--ink-light); margin-top: 4px; line-height: 1.6; }
+  .hotel-card .hotel-score {
+    flex-shrink: 0;
+    background: var(--accent-bamboo);
+    color: #fff;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-size: .8rem;
+    font-weight: 700;
+  }
+  @media (max-width: 600px) {
+    .hotel-card { flex-direction: column; }
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline { margin: 20px 0; position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: var(--border);
+    border-radius: 2px;
+  }
+  .tl-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .tl-time {
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 18px;
+    padding: 4px 14px;
+    font-size: .82rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    letter-spacing: .02em;
+  }
+  .tl-body {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    flex: 1;
+  }
+  .tl-body h4 {
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-size: .98rem;
+    font-weight: 700;
+  }
+  .tl-body p { font-size: .88rem; color: var(--ink-light); line-height: 1.65; }
+  .tl-body .tl-note { font-size: .82rem; color: var(--ink-lighter); margin-top: 4px; font-style: italic; }
+
+  /* ===== INFO BOXES ===== */
+  .info-box {
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: .9rem;
+    line-height: 1.65;
+  }
+  .info-tip    { background: #f0f5ee; border-left: 4px solid var(--accent-bamboo); }
+  .info-warn   { background: #fef5f0; border-left: 4px solid var(--accent-vermillion); }
+  .info-blue   { background: #eef5f7; border-left: 4px solid var(--accent-water); }
+  .info-gold   { background: #fdf9ef; border-left: 4px solid var(--accent-gold); }
+  .info-box strong { color: var(--ink); }
+
+  /* ===== ROUTE MAP ===== */
+  .route-map {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    text-align: center;
+    margin: 14px 0;
+    overflow-x: auto;
+  }
+  .route-map svg { max-width: 100%; height: auto; }
+  .route-map .map-title {
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  /* ===== BUDGET TABLE ===== */
+  .tbl-wrapper { overflow-x: auto; margin: 16px 0; }
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+  }
+  table.data-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+    font-size: .85rem;
+  }
+  table.data-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+  table.data-table tr:last-child td { font-weight: 700; }
+  table.data-table .muted { color: var(--ink-lighter); font-weight: 400; font-size: .84rem; }
+
+  /* ===== TAGS ===== */
+  .tag {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 2px 9px;
+    font-size: .76rem;
+    font-weight: 700;
+    margin-right: 4px;
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  .tag-must  { background: #fdf0ed; color: #b83a2a; }
+  .tag-kid   { background: #fef6ee; color: #c7691a; }
+  .tag-local { background: #edf5ea; color: #4a7040; }
+  .tag-car   { background: #ecf2f8; color: #2d5f8a; }
+  .tag-rail  { background: #f4edf8; color: #6b3a8a; }
+  .tag-avoid { background: #fef0f0; color: #a04040; }
+
+  /* ===== TWO COLUMN ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ===== EMOTION BEAT ===== */
+  .emotion-strip {
+    display: flex;
+    gap: 0;
+    margin: 20px 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  .emotion-strip .beat {
+    flex: 1;
+    padding: 16px 12px;
+    text-align: center;
+    font-size: .82rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  @media (max-width: 600px) { .emotion-strip { flex-direction: column; } }
+
+  /* ===== FOOTER ===== */
+  .slide-footer {
+    text-align: center;
+    font-size: .8rem;
+    color: #bbb;
+    margin-top: 40px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .slide { min-height: auto; page-break-after: always; padding: 36px 5vw; }
+    body { font-size: 13px; }
+  }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-bar {
+    position: fixed; top:0; left:0; height:3px;
+    background: linear-gradient(90deg, var(--accent-stone), var(--accent-vermillion));
+    z-index: 200;
+    transition: width .2s;
+  }
+  .nav-dots {
+    position: fixed; right: 16px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 100;
+  }
+  .nav-dots a {
+    width: 8px; height: 8px;
+    background: #d0ccc4; border-radius: 50%; display: block;
+    transition: background .3s;
+  }
+  .nav-dots a.active { background: var(--ink); }
+  @media (max-width: 768px) { .nav-dots { display: none; } }
+
+  /* ===== MISC ===== */
+  .divider {
+    text-align: center;
+    color: var(--border);
+    font-size: 1.2rem;
+    margin: 18px 0;
+    letter-spacing: .2em;
+  }
+  .back-to-top {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: .82rem;
+    color: var(--accent-stone);
+    text-decoration: none;
+    font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar" style="width:0%"></div>
+<div class="nav-dots" id="navDots"></div>
+
+<!-- ================================================================== -->
+<!-- SLIDE 1 : COVER -->
+<!-- ================================================================== -->
+<section class="slide slide-cover" id="s1">
+  <div class="slide-inner">
+    <div class="crest">🏞️</div>
+    <h1>桂 林 山 水</h1>
+    <p class="tagline">—— 三日在地沉浸之旅 ——</p>
+    <div class="meta-strip">
+      <span>📅 2026年8月14日–16日 · 周五至周日</span>
+      <span>👨‍👩‍👧‍👦 约20人 · 4~5个家庭</span>
+      <span>🚗 3家自驾 + 🚄 2家高铁</span>
+      <span>🎋 在地文化 · 亲子友好</span>
+    </div>
+  </div>
+  <svg class="cover-mountains" viewBox="0 0 1200 200" preserveAspectRatio="none" style="height:200px;">
+    <polygon points="0,200 0,90 70,50 140,75 220,30 300,65 380,40 460,55 540,15 620,50 700,30 780,60 860,20 940,45 1020,25 1100,50 1200,65 1200,200" fill="rgba(255,255,255,.06)"/>
+    <polygon points="0,200 0,120 90,85 180,110 270,70 360,100 450,65 540,90 630,60 720,95 810,60 900,90 990,65 1080,85 1200,90 1200,200" fill="rgba(255,255,255,.04)"/>
+  </svg>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 2 : DESIGN PHILOSOPHY -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s2">
+  <div class="slide-inner">
+    <h2>🎋 设计手记</h2>
+    <p class="section-lead">这不是一份"景点打卡清单"，而是一段有呼吸、有留白的山水时光。</p>
+
+    <div class="quote-block">
+      "桂林的魂不在景区大门里，而在清晨竹筏划过江面的涟漪中，在黄昏古村村口老人摇扇的吱呀声里，在一碗五块钱却熬了三十年汤底的米粉香气间。"
+      <div class="attribution">—— 旅行设计思路</div>
+    </div>
+
+    <h3>情绪节奏设计</h3>
+    <div class="emotion-strip">
+      <div class="beat" style="background:#2a4a3a;">Day 1<br>🌿 初见 · 好奇<br><small>城市初探，轻量适应</small></div>
+      <div class="beat" style="background:#3a6a52;">Day 2 上午<br>⛰️ 高潮 · 震撼<br><small>漓江全景，一生必游</small></div>
+      <div class="beat" style="background:#4a7a5a;">Day 2 下午<br>😌 沉浸 · 悠闲<br><small>古镇漫步，时光倒流</small></div>
+      <div class="beat" style="background:#5a8a62;">Day 3 上午<br>🚲 诗意 · 治愈<br><small>田园骑行，竹筏清流</small></div>
+      <div class="beat" style="background:#6a9a6a;">Day 3 下午<br>👋 满足 · 返程<br><small>收获满满，平安回家</small></div>
+    </div>
+
+    <div class="card-grid col2" style="margin-top:20px;">
+      <div class="card">
+        <div class="card-icon">🧭</div>
+        <h4>设计原则</h4>
+        <ul>
+          <li><strong>动线流畅</strong>：桂林→漓江→阳朔，不走回头路</li>
+          <li><strong>经典+秘境</strong>：象鼻山&漓江必去，但穿插旧县村、福利古镇等安静角落</li>
+          <li><strong>亲子节奏</strong>：每天核心体验不超过2个，留足午休/自由时间</li>
+          <li><strong>弹性空间</strong>：备有雨天方案，家庭可按体力自由取舍</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <h4>避坑原则</h4>
+        <ul>
+          <li>西街快速逛一圈即可，<strong>不在此用餐购物</strong></li>
+          <li>啤酒鱼去本地人吃的店，避开西街景区店</li>
+          <li>竹筏选上游段（金龙桥→旧县），人少景美</li>
+          <li>骑行走遇龙河生态步道，避开十里画廊主路机动车</li>
+          <li>不信路边拉客"低价票""免费带路"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 3 : WEATHER & PACKING -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s3">
+  <div class="slide-inner">
+    <h2>🌤️ 天气预报 & 出行装备</h2>
+    <p class="section-lead">8月中旬桂林：高温高湿、时有阵雨，属典型的亚热带盛夏。以下基于历史同期数据分析。</p>
+
+    <!-- Weather Cards -->
+    <div class="card-grid col3" style="margin:16px 0;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:3rem;">☀️🌧️</div>
+        <h4>8月14日（周五）</h4>
+        <p style="font-size:1.5rem;font-weight:800;">26°~35°C</p>
+        <p>多云间晴，午后可能有短时阵雨</p>
+        <p style="font-size:.82rem;color:var(--ink-lighter);">体感温度约38°C · 湿度75%</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:3rem;">⛅</div>
+        <h4>8月15日（周六）</h4>
+        <p style="font-size:1.5rem;font-weight:800;">25°~34°C</p>
+        <p>晴转多云，游江最佳天气</p>
+        <p style="font-size:.82rem;color:var(--ink-lighter);">体感温度约36°C · 湿度70%</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:3rem;">🌧️</div>
+        <h4>8月16日（周日）</h4>
+        <p style="font-size:1.5rem;font-weight:800;">24°~33°C</p>
+        <p>多云转阵雨，午后雨势概率较高</p>
+        <p style="font-size:.82rem;color:var(--ink-lighter);">体感温度约34°C · 湿度80%</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="info-box info-tip">
+        <strong>🎒 每人必带清单</strong>
+        <ul style="margin-top:6px;padding-left:16px;">
+          <li>防晒三件套：防晒霜(SPF50+)、宽檐遮阳帽、冰袖/防晒衣</li>
+          <li>雨具：折叠伞一把 + 轻便防水凉鞋</li>
+          <li>防蚊：驱蚊液（含DEET）、蚊虫叮咬止痒膏</li>
+          <li>游泳：泳衣+泳镜（酒店泳池/遇龙河玩水）</li>
+          <li>鞋：运动鞋（骑行登山）+ 洞洞鞋/凉鞋（雨天）</li>
+          <li>水壶：每人一只，及时补水防中暑</li>
+          <li>充电宝：漓江游船4小时，手机拍照耗电快</li>
+        </ul>
+      </div>
+      <div class="info-box info-tip">
+        <strong>👶👴 亲子/老人特别装备</strong>
+        <ul style="margin-top:6px;padding-left:16px;">
+          <li>儿童：水枪、捞鱼网（遇龙河边可玩水）、备用衣裤×2</li>
+          <li>儿童：便携小风扇/挂脖风扇、汗巾</li>
+          <li>老人：轻便折叠凳（排队/等船用）、常用药</li>
+          <li>药品包：藿香正气水、退烧药、蒙脱石散、创可贴、碘伏棉签</li>
+          <li>20人团队建议：带一台对讲机（山区信号弱时联络）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box info-warn">
+      <strong>⚠️ 安全提醒：</strong> ① 漓江游船/竹筏全程穿救生衣，不站立不换位；② 遇雷雨天气立即离开水面和山顶，就近避雷；③ 自驾组：桂林-阳朔多为二级公路，雨天道滑减速慢行；④ 如遇暴雨导致漓江水位上涨，游船可能停航——已预留Day3上午作为弹性时间。
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 4 : HOTELS -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s4">
+  <div class="slide-inner">
+    <h2>🏨 住宿推荐 · 性价比之选</h2>
+    <p class="section-lead">20人团队建议预订5~6间房。以下为实地口碑好、性价比突出、适合亲子的选择。暑期旺季务必<strong>提前2周预订</strong>。</p>
+
+    <h3>📍 桂林市区（8月14日晚）</h3>
+    <div class="hotel-card">
+      <div class="hotel-badge" style="background:#eef5ee;">🏢</div>
+      <div class="hotel-info">
+        <h4>桂林中心璞隐酒店 <span class="tag tag-local">性价比首选</span></h4>
+        <p class="price">¥280~380/间 · 含双早</p>
+        <p>正阳步行街旁，位置绝佳，步行到象鼻山10分钟、两江四湖5分钟。2023年新装修，房间干净，有家庭房（1大床+1小床）。地下停车免费。</p>
+      </div>
+      <div class="hotel-score">4.7</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-badge" style="background:#eef5f7;">🏨</div>
+      <div class="hotel-info">
+        <h4>正阳驿站酒店 <span class="tag tag-local">经济实惠</span></h4>
+        <p class="price">¥200~300/间</p>
+        <p>正阳步行街核心位置，下楼就是夜市。风格简约，干净卫生。缺点是房间偏小、无电梯（老楼改建），适合行李少的家庭。旁边有公共停车场¥20/晚。</p>
+      </div>
+      <div class="hotel-score">4.5</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-badge" style="background:#fef6ee;">🌊</div>
+      <div class="hotel-info">
+        <h4>桂林漓江大瀑布饭店 <span class="tag tag-kid">亲子友好</span></h4>
+        <p class="price">¥450~650/间 · 含双早</p>
+        <p>桂林老牌四星，标志性"瀑布外墙"每晚亮灯。有儿童泳池和家庭房，早餐丰盛。停车免费。步行到日月双塔5分钟。适合对住宿品质有要求的家庭。</p>
+      </div>
+      <div class="hotel-score">4.6</div>
+    </div>
+
+    <h3>📍 阳朔（8月15日晚）</h3>
+    <div class="hotel-card">
+      <div class="hotel-badge" style="background:#edf5ea;">🏡</div>
+      <div class="hotel-info">
+        <h4>如是禅境 RUSHI RESORT <span class="tag tag-local">高性价比·强推</span></h4>
+        <p class="price">¥380~550/间 · 含早</p>
+        <p>评分9.6，十里画廊景区旁。家庭房：1大床+1小床+阳台浴缸。楼顶泳池望山，免费借电动车、代购优惠门票、免费洗衣。对面是乌布小镇公园有儿童设施。地下停车免费。2019年装修但因疫情实际使用仅3年，设施新无异味。</p>
+      </div>
+      <div class="hotel-score">9.6</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-badge" style="background:#fef6ee;">🏡</div>
+      <div class="hotel-info">
+        <h4>阳朔禧山度假民宿 <span class="tag tag-kid">二孩家庭首选</span></h4>
+        <p class="price">¥450~650/间 · 含早</p>
+        <p>评分4.8（99%推荐）。「禧·秘境」家庭房：180°落日全景+山野私汤泡池，双水池卫生间。泳池、充电桩、麻将桌。早餐现煮米粉，晚上送银耳汤。特别适合二孩/四口家庭。</p>
+      </div>
+      <div class="hotel-score">4.8</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-badge" style="background:#f0f5ee;">🏡</div>
+      <div class="hotel-info">
+        <h4>宝贝喜欢018亲子酒店 <span class="tag tag-kid">低龄儿童首选</span></h4>
+        <p class="price">¥350~500/间 · 含早</p>
+        <p>一楼整层为儿童乐园——海洋球池、旋转滑梯、攀岩墙、蹦床。设「泊贝贝家庭乐园房」带滑梯+双层床，提供儿童洗漱包、婴儿床。步行到十里画廊。如果你家孩子<8岁，这里最省心。</p>
+      </div>
+      <div class="hotel-score">4.7</div>
+    </div>
+
+    <div class="info-box info-gold">
+      <strong>💡 20人团队住宿Tip：</strong> 阳朔如能找到5~6间房的<strong>民宿包栋</strong>（如禧山、如是禅境均可咨询），通常比散订便宜15~20%，且拥有独立公区供孩子们玩耍、大人喝茶聊天。提前联系民宿老板谈团队价。自驾组优先选有免费停车+充电桩的酒店。
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 5 : DAY 1 -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s5">
+  <div class="slide-inner">
+    <h2>📅 Day 1 · 8月14日（周五）—— 初见桂林</h2>
+    <p class="section-lead">主题词：抵达 · 好奇 · 城市印象 | 节奏：轻量适应，为明天的漓江高潮蓄力。</p>
+
+    <div class="route-map">
+      <div class="map-title">📍 Day 1 路线总览：酒店 → 象鼻山 → 午餐 → 芦笛岩 → 正阳步行街 → 两江四湖夜游</div>
+      <svg viewBox="0 0 800 120" style="max-width:800px;">
+        <defs><marker id="ad1" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#8b7e6a"/></marker></defs>
+        <polyline points="40,60 150,45 290,50 430,55 570,65 700,70" fill="none" stroke="#8b7e6a" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#ad1)"/>
+        <circle cx="40" cy="60" r="15" fill="#1a1a1a"/><text x="40" y="65" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">酒店</text>
+        <circle cx="150" cy="45" r="11" fill="#5a7d4a"/><text x="150" y="50" text-anchor="middle" font-size="7" fill="#fff">象鼻山</text>
+        <circle cx="290" cy="50" r="11" fill="#c4a44a"/><text x="290" y="55" text-anchor="middle" font-size="7" fill="#fff">午餐</text>
+        <circle cx="430" cy="55" r="11" fill="#5a7d4a"/><text x="430" y="60" text-anchor="middle" font-size="7" fill="#fff">芦笛岩</text>
+        <circle cx="570" cy="65" r="11" fill="#c4a44a"/><text x="570" y="70" text-anchor="middle" font-size="7" fill="#fff">步行街</text>
+        <circle cx="700" cy="70" r="11" fill="#3a7d8c"/><text x="700" y="75" text-anchor="middle" font-size="7" fill="#fff">夜游</text>
+        <text x="90" y="35" font-size="8" fill="#999">步行10min</text>
+        <text x="350" y="35" font-size="8" fill="#999">车程18min</text>
+        <text x="490" y="50" font-size="8" fill="#999">车程15min</text>
+      </svg>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">08:30</div>
+        <div class="tl-body">
+          <h4>🚗🚄 分别出发，目标桂林</h4>
+          <p>
+            <span class="tag tag-car">自驾组</span> 建议6:30~7:00出发，预计2~3小时车程。导航至预订酒店。途中可在高速服务区休息一次。<br>
+            <span class="tag tag-rail">高铁组</span> 建议选G/D字头早班车（如G2902/G1502等），8:30前抵达<strong>桂林北站</strong>或<strong>桂林站</strong>。出站后滴滴/出租车至酒店，约¥20~30。
+          </p>
+          <p class="tl-note">👨‍👩‍👧‍👦 设计思路：两组人在酒店汇合，不设固定集合时间，减少等待焦虑。早到的家庭可先在酒店泳池玩水或在正阳步行街逛逛。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">09:30</div>
+        <div class="tl-body">
+          <h4>🏨 酒店办理入住/寄存行李</h4>
+          <p>如房间尚未打扫好，先寄存行李。自驾车统一停酒店停车场。建微信群共享实时位置。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">10:00</div>
+        <div class="tl-body">
+          <h4>🐘 象鼻山公园 <span class="tag tag-must">城徽必游</span> <span class="tag tag-kid">亲子友好</span></h4>
+          <p>门票¥55/人，提前美团/携程购票¥50。公园面积不大，步道平缓有树荫，老幼皆宜。核心看点是<strong>象鼻山</strong>——桂林城徽，形如巨象饮水漓江。最佳拍摄点在<strong>爱情岛</strong>一侧。游览约1~1.5小时。<br>
+          <span class="tl-note">📸 拍照TIP：上午光线从东南方向照来，象鼻山正面受光，是最佳拍摄时间。</span></p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">11:30</div>
+        <div class="tl-body">
+          <h4>🍜 午餐：地道桂林味</h4>
+          <p><strong>推荐A：老东江米粉（总店）</strong>—— 桂林米粉天花板，锅烧脆到惊艳。先干拌吃粉，吃完再加汤。¥10~15/人。<br>
+          <strong>推荐B：椿记烧鹅（中山路店）</strong>—— 桂林人的"食堂"，烧鹅皮脆肉嫩，适合大团体点菜。人均¥60~80。需提前电话订大桌。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">13:30</div>
+        <div class="tl-body">
+          <h4>🕳️ 芦笛岩 <span class="tag tag-must">必游</span></h4>
+          <p>门票¥90/人。洞内恒温<strong>约20°C</strong>，盛夏入洞如入空调房，是午后避暑的完美选择！有讲解员全程导览（约1小时），钟乳石配合灯光变幻——"水晶宫""雪山倒影"尤受孩子喜爱。被称作"国宾洞"，曾接待过众多外国元首。</p>
+          <p class="tl-note">💡 设计心思：特意将芦笛岩安排在下午最热的时段——既是文化体验，也是天然避暑。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">16:00</div>
+        <div class="tl-body">
+          <h4>☕ 自由时间 / 回酒店休整</h4>
+          <p>返回酒店，孩子可游泳/午睡。大人喝茶休息。为晚上的夜游储备体力。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">17:30</div>
+        <div class="tl-body">
+          <h4>🍽️ 晚餐：阿甘酒家 或 小南国</h4>
+          <p>桂林本地人聚餐常去的两家。推荐菜：<strong>旱蒸剑骨鱼、荔浦芋头扣肉、桂林田螺</strong>。20人分两桌，每桌¥500~600。记得提前订位。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">19:00</div>
+        <div class="tl-body">
+          <h4>🌃 两江四湖夜游 · 日月双塔</h4>
+          <p>乘船夜游¥190/人（提前网上订¥170），约90分钟。若不坐船，沿湖边散步<strong>免费</strong>赏景——日月双塔（金色日塔+银色月塔）亮灯后倒映湖面，是桂林夜景最经典的画面。沿湖步道平缓，适合老人散步。</p>
+          <p class="tl-note">💡 建议：不想坐船的家庭可在湖边散步+去正阳步行街夜市逛逛。步行街上的桂花糕、马蹄糕可以买来尝尝。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">21:00</div>
+        <div class="tl-body">
+          <h4>🌙 回酒店 · 早休</h4>
+          <p>明天是行程的重头戏——漓江游船。建议早休，养精蓄锐。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 6 : DAY 2 - THE CLIMAX -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s6">
+  <div class="slide-inner">
+    <h2>📅 Day 2 · 8月15日（周六）—— 漓江入画</h2>
+    <p class="section-lead">主题词：震撼 · 沉浸 · 时空穿越 | 今日是整趟旅行的高潮——4小时漓江游船穿越百里画廊。</p>
+
+    <div class="info-box info-blue">
+      <strong>🚗 关键交通安排：</strong> 全员统一从<strong>磨盘山码头</strong>乘船。自驾组开车前往码头（约40分钟），高铁组搭自驾车或统一滴滴。码头有大型停车场（¥20/天）。船抵阳朔后，自驾组派<strong>2名司机</strong>打车回磨盘山码头取车（约¥150，1小时车程），其余人先在阳朔安顿。或者——更省心的方案——选择旅行社<strong>漓江一日游套餐</strong>（含桂林酒店接+船票+阳朔送，约¥380/人），省去取车烦恼。
+    </div>
+
+    <div class="route-map">
+      <div class="map-title">🚢 漓江游船路线：磨盘山 → 竹江 → 杨堤 → 九马画山 → 黄布倒影 → 兴坪 → 阳朔（约4小时）</div>
+      <svg viewBox="0 0 800 110" style="max-width:800px;">
+        <defs><marker id="ad2" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#3a7d8c"/></marker></defs>
+        <path d="M20,55 Q90,30 170,45 Q250,60 330,48 Q410,35 500,50 Q580,62 660,48 Q720,40 780,50" fill="none" stroke="#a0d0d8" stroke-width="16" opacity=".35"/>
+        <path d="M20,55 Q90,30 170,45 Q250,60 330,48 Q410,35 500,50 Q580,62 660,48 Q720,40 780,50" fill="none" stroke="#3a7d8c" stroke-width="2.5" stroke-dasharray="8,4" marker-end="url(#ad2)"/>
+        <circle cx="20" cy="55" r="10" fill="#1a1a1a"/><text x="20" y="78" text-anchor="middle" font-size="8" fill="#333">磨盘山</text>
+        <circle cx="170" cy="45" r="7" fill="#5a7d4a"/><text x="170" y="76" text-anchor="middle" font-size="7" fill="#666">杨堤</text>
+        <circle cx="330" cy="48" r="7" fill="#c44f3c"/><text x="330" y="76" text-anchor="middle" font-size="7" fill="#666">九马画山</text>
+        <circle cx="500" cy="50" r="9" fill="#c4a44a"/><text x="500" y="78" text-anchor="middle" font-size="7" fill="#333">黄布倒影(¥20)</text>
+        <circle cx="660" cy="48" r="7" fill="#5a7d4a"/><text x="660" y="76" text-anchor="middle" font-size="7" fill="#666">兴坪</text>
+        <circle cx="780" cy="50" r="10" fill="#1a1a1a"/><text x="780" y="78" text-anchor="middle" font-size="8" fill="#333">阳朔</text>
+      </svg>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">07:00</div>
+        <div class="tl-body">
+          <h4>🌅 早起 · 酒店早餐 · 退房</h4>
+          <p>吃完早餐办理退房。行李全部装自驾车。高铁家庭的行李也放自驾车上——今天轻装上阵。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">08:00</div>
+        <div class="tl-body">
+          <h4>🚗 出发前往磨盘山码头</h4>
+          <p>桂林市区→磨盘山码头约40分钟车程。建议8:00前出发，留足时间停车+取票。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">09:00</div>
+        <div class="tl-body">
+          <h4>🚢 登船！漓江精华游启程 <span class="tag tag-must">核心体验</span></h4>
+          <p>
+            <strong>三星船</strong> ¥245/人（含午餐）| <strong>四星船</strong> ¥360/人（含自助午餐，座位更宽）<br>
+            建议升级四星船——20人有小孩老人，4小时船程舒适度很重要。甲板上看风景，累了回舱内吹空调。<br>
+            沿途精华：<strong>九马画山</strong>（你能数出几匹马？）→ <strong>黄布倒影</strong>（拿出20元人民币，对比背面图案！）→ 兴坪佳境。
+          </p>
+          <p class="tl-note">📸 拍照TIP：船行至黄布倒影段，务必提前到顶层甲板占位。拿出20元纸币与实景同框——这是此行最经典的合影。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">13:00</div>
+        <div class="tl-body">
+          <h4>⚓ 抵达阳朔龙头山码头</h4>
+          <p>下船后步行约15分钟可达西街区域。如果选了旅行社一日游套餐，会有车接送到酒店。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">13:30</div>
+        <div class="tl-body">
+          <h4>🏨 阳朔酒店入住 + 休整</h4>
+          <p>办理入住。孩子可以游泳/午睡。大人可在酒店阳台喝茶望山。阳朔的午后适合"慢下来"。</p>
+          <p class="tl-note">🚗 与此同时：自驾组2名司机打车回磨盘山取车（约¥150），开到阳朔酒店。约15:30前可完成。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">16:00</div>
+        <div class="tl-body">
+          <h4>🏘️ 兴坪古镇 + 20元背景打卡 <span class="tag tag-local">文化沉浸</span></h4>
+          <p>如果精力充沛（且已取回车），自驾前往兴坪古镇（约30分钟车程）。在<strong>黄布倒影观景台</strong>亲手拍下20元人民币同款照片。逛兴坪老街——比西街安静得多，有几家不错的咖啡馆。</p>
+          <p class="tl-note">💡 如果大家比较疲惫，兴坪可改为Day3上午顺路去。旅行不用赶。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">18:00</div>
+        <div class="tl-body">
+          <h4>🍽️ 晚餐：地道啤酒鱼</h4>
+          <p><strong>推荐：老班姐啤酒鱼</strong>（阳朔县城，非西街店！）—— 剑骨鱼无小刺，孩子放心吃。人均¥60。<br>
+          或者：<strong>旧县村老根农家饭</strong> —— 开在200年古村老宅里，土鸡+啤酒鱼+自酿米酒，人均¥70。<br>
+          <span class="tag tag-avoid">避坑</span> 西街上的啤酒鱼店价格虚高且口味偏游客化，不推荐。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">19:30</div>
+        <div class="tl-body">
+          <h4>🌆 晚间二选一</h4>
+          <p>
+            <strong>A. 西街快速一逛：</strong> 感受一下气氛即可——这里本质是"义乌小商品城+酒吧街"，不必久留。<br>
+            <strong>B.《印象·刘三姐》</strong> ¥198起：张艺谋导演的山水实景演出，场面宏大。需提前订票！<br>
+            <strong>C.（备选）阳朔千古情</strong> ¥280起：室内演出，宋城出品，雨天也不受影响。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 7 : DAY 3 -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s7">
+  <div class="slide-inner">
+    <h2>📅 Day 3 · 8月16日（周日）—— 田园终章</h2>
+    <p class="section-lead">主题词：诗意 · 治愈 · 回味 | 把最温柔的一段留给最后——骑行遇龙河畔，竹筏划过如镜的水面。</p>
+
+    <div class="route-map">
+      <div class="map-title">🚲 Day 3 骑行+漂流路线：酒店 → 遇龙河生态步道 → 富里桥 → 旧县 → 工农桥 → 返程</div>
+      <svg viewBox="0 0 800 150" style="max-width:800px;">
+        <defs><marker id="ad3" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#c44f3c"/></marker></defs>
+        <path d="M40,75 Q130,30 230,50 Q320,65 420,45 Q500,30 580,50 Q650,65 730,55 Q760,50 780,55" fill="none" stroke="#c44f3c" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#ad3)"/>
+        <text x="140" y="20" font-size="8" fill="#3a7d8c">~ 遇龙河 ~</text>
+        <text x="380" y="20" font-size="8" fill="#3a7d8c">~ 遇龙河 ~</text>
+        <text x="580" y="20" font-size="8" fill="#3a7d8c">~ 遇龙河 ~</text>
+        <circle cx="40" cy="75" r="14" fill="#1a1a1a"/><text x="40" y="100" text-anchor="middle" font-size="8" fill="#333">阳朔酒店</text>
+        <circle cx="180" cy="45" r="10" fill="#5a7d4a"/><text x="180" y="65" text-anchor="middle" font-size="7" fill="#555">富里桥</text>
+        <circle cx="320" cy="55" r="10" fill="#c44f3c"/><text x="320" y="80" text-anchor="middle" font-size="7" fill="#555">金龙桥(漂流起点)</text>
+        <circle cx="460" cy="42" r="10" fill="#5a7d4a"/><text x="460" y="65" text-anchor="middle" font-size="7" fill="#555">旧县村(漂流终点)</text>
+        <circle cx="580" cy="48" r="10" fill="#c4a44a"/><text x="580" y="70" text-anchor="middle" font-size="7" fill="#555">工农桥</text>
+        <circle cx="700" cy="55" r="10" fill="#1a1a1a"/><text x="700" y="80" text-anchor="middle" font-size="7" fill="#555">月亮山</text>
+        <circle cx="780" cy="55" r="10" fill="#3a7d8c"/><text x="780" y="80" text-anchor="middle" font-size="7" fill="#555">返程</text>
+        <text x="410" y="32" text-anchor="middle" font-size="8" fill="#999">骑行约12km · 走走停停约2.5h</text>
+      </svg>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">07:30</div>
+        <div class="tl-body">
+          <h4>🌅 清晨：富里桥（可选晨起项目）</h4>
+          <p>精力旺盛的家庭可早起，自驾/打车前往<strong>富里桥</strong>（约20分钟车程）。这座500年古桥半圆拱与倒影形成完美圆形，日出时分薄雾缭绕、水牛在桥下耕地——这是阳朔最接近中国水墨画的瞬间。如不想早起，跳过直接进入下一项。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">08:30</div>
+        <div class="tl-body">
+          <h4>🚲 遇龙河生态步道骑行 <span class="tag tag-must">灵魂体验</span> <span class="tag tag-kid">亲子最爱</span></h4>
+          <p>
+            在酒店/车行租电动车（¥40~60/天）或自行车（¥20~30/天）。<br>
+            <strong>走遇龙河生态步道，不走十里画廊主路！</strong> 步道是专门的骑行/步行道，<strong>无机动车</strong>，全程沿河——稻田🌾、竹林🎋、古桥🌉、喀斯特峰林🏔️一路相伴。<br>
+            推荐路线：<strong>遇龙桥→犀牛塘→川山岩→旧县→工农桥</strong>，全程约12公里。走走停停拍照，约2~2.5小时。
+          </p>
+          <p class="tl-note">📸 最美拍照点：遇龙桥（明代古桥+倒影）、旧县段（稻田+峰林背景）、工农桥（日落方向，但上午逆光也有味道）。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">10:00</div>
+        <div class="tl-body">
+          <h4>🎋 遇龙河竹筏漂流 <span class="tag tag-must">必体验</span></h4>
+          <p>
+            <strong>金龙桥→旧县段</strong>（精华上游）：约1.5小时，¥160/筏（坐2人），共9个落差小坝——刺激但安全，水花溅起时孩子会尖叫大笑。人工撑筏，安静地划过如镜水面，两岸峰林倒影完整。<br>
+            ⚠️ 旺季需排队！建议<strong>8:30前到金龙桥码头</strong>取号。竹筏按号叫，拿号后可在附近吃早餐等待。<br>
+            老人/幼儿可选<strong>万景→骆驼过江</strong>段（平缓休闲，约40分钟，¥100/筏）。
+          </p>
+          <p class="tl-note">💡 设计心思：骑行+竹筏是Day3的核心，也是最"阳朔"的体验——没有机动车的噪音，只有风声、水声和孩子的笑声。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">12:00</div>
+        <div class="tl-body">
+          <h4>🍽️ 午餐：遇龙河畔农家菜</h4>
+          <p>推荐旧县村旁的<strong>老根农家饭店</strong>——开在200年历史的古宅里。必点：<strong>土鸡炖汤、荔浦芋头扣肉、田螺酿、炒时蔬</strong>。食材来自自家菜地和鸡舍。人均¥50~70。饭后逛逛旧县村——完全没有商业开发的明清古村，"进士第""大夫第"散落其间，村民在门口择菜、晒玉米，时光仿佛停在了两百年前。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">14:00</div>
+        <div class="tl-body">
+          <h4>🏠 返程</h4>
+          <p>
+            <span class="tag tag-car">自驾组</span> 阳朔出发返回，建议15:00前启程，约2~3小时到家。<br>
+            <span class="tag tag-rail">高铁组</span> 从<strong>阳朔站</strong>（位于兴坪，距县城约30分钟车程）返程，建议订<strong>16:00后</strong>的车次。或搭自驾家庭顺风车到桂林北站/桂林站乘车（阳朔→桂林北约1.5小时，需提前出发）。
+          </p>
+          <p class="tl-note">👋 临别建议：在阳朔买一些伴手礼——推荐福利古镇手工画扇（Day2如果去了福利古镇）、桂林腐乳、桂花干。别在西街买！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 8 : BUDGET -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s8">
+  <div class="slide-inner">
+    <h2>💰 费用预算明细（人均）</h2>
+    <p class="section-lead">按20人团体估算。儿童按身高多数景点有半价/免票（1.2m以下免票，1.2~1.5m半票）。团体订票通常9折。</p>
+
+    <div class="tbl-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr><th>类别</th><th>项目</th><th>单价（¥）</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🏨</td><td>桂林住宿（1晚）</td><td>150~300</td><td class="muted">按双人间均摊，璞隐/正阳驿站</td></tr>
+          <tr><td>🏨</td><td>阳朔住宿（1晚）</td><td>200~350</td><td class="muted">如是禅境/禧山民宿，按双人间均摊</td></tr>
+          <tr><td>🐘</td><td>象鼻山公园</td><td>50</td><td class="muted">网上预订价，现场¥55</td></tr>
+          <tr><td>🕳️</td><td>芦笛岩</td><td>90</td><td class="muted">含导游讲解</td></tr>
+          <tr><td>🚢</td><td>漓江游船（三星）</td><td>245</td><td class="muted">含午餐；四星船¥360（推荐）</td></tr>
+          <tr><td>🌃</td><td>两江四湖夜游</td><td>170~190</td><td class="muted"><strong>可选</strong>，散步赏景免费</td></tr>
+          <tr><td>🎭</td><td>印象·刘三姐</td><td>198~328</td><td class="muted"><strong>可选</strong>，按座位等级</td></tr>
+          <tr><td>🎋</td><td>遇龙河竹筏</td><td>80</td><td class="muted">¥160/筏÷2人，金龙桥-旧县段</td></tr>
+          <tr><td>🚲</td><td>电动车/自行车租赁</td><td>20~30</td><td class="muted">¥40~60/车÷2人</td></tr>
+          <tr><td>🍽️</td><td>餐饮（3天5正餐+早）</td><td>400~550</td><td class="muted">含一顿啤酒鱼大餐</td></tr>
+          <tr><td>🚗</td><td>自驾油费+路桥+停车</td><td>100~150</td><td class="muted">按每车4人均摊</td></tr>
+          <tr><td>🎫</td><td>杂费+旅游意外险</td><td>80</td><td class="muted">停车费、保险（约¥10/天）、小费等</td></tr>
+          <tr style="background:#faf6ee;"><td><strong>💰</strong></td><td><strong>合计（经济版）</strong></td><td><strong>≈ 1,465</strong></td><td class="muted">三星船、不含夜游&演出</td></tr>
+          <tr style="background:#faf6ee;"><td><strong>💰</strong></td><td><strong>合计（舒适版·推荐）</strong></td><td><strong>≈ 1,900</strong></td><td class="muted">四星船、含一项演出</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box info-tip">
+      <strong>💡 省钱要点：</strong> ① 儿童费用约为成人的60~70%；② 阳朔民宿包栋（5~6间）比散订便宜15~20%；③ 20人可联系当地旅行社拿团队门票价（通常8~9折）；④ 如选三星船+不坐夜游船+不看演出，人均可控制在¥1,300以内。
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 9 : FOOD MAP -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s9">
+  <div class="slide-inner">
+    <h2>🍜 味觉桂林 · 不可辜负的在地味道</h2>
+    <p class="section-lead">桂林的饮食哲学：酸辣开胃、食材为先。以下按"必吃级别"排列。</p>
+
+    <div class="card-grid col2">
+      <div class="card">
+        <div class="card-icon">🥇</div>
+        <h4>桂林米粉 — 城市的灵魂早餐</h4>
+        <p>先干拌吃粉，吃完再加骨头汤——这是本地人吃法。卤水是灵魂，锅烧（脆皮五花肉）是点睛之笔。<br>
+        📍 <strong>老东江米粉（总店）</strong>：锅烧脆到极致<br>
+        📍 <strong>九岗岭米粉</strong>：居民区老店，本地人扎堆<br>
+        💰 ¥8~15/碗</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🥇</div>
+        <h4>阳朔啤酒鱼 — 山水之间一锅鲜</h4>
+        <p>漓江鲜鱼+啤酒+番茄青椒焖制。正宗做法不去鳞——鱼鳞煎至酥脆可吃。<br>
+        📍 <strong>老班姐啤酒鱼（县城）</strong>：剑骨鱼无小刺<br>
+        📍 <strong>旧县村老根农家饭</strong>：古宅里的啤酒鱼<br>
+        💰 ¥88~168/份（够3~4人）</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🥈</div>
+        <h4>荔浦芋头扣肉 — 宴席压轴菜</h4>
+        <p>粉糯荔浦芋头+五花肉层层相叠，蒸至入味。桂林人过年/办酒必备。<br>
+        📍 遇龙河农家菜馆尤为地道<br>
+        💰 ¥48~68/份</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🥈</div>
+        <h4>田螺酿 — 阳朔独有功夫菜</h4>
+        <p>螺肉取出+猪肉+薄荷剁碎，回填入螺壳焖煮。一口一个，鲜香浓郁。<br>
+        📍 阳朔县城本地餐馆<br>
+        💰 ¥38~58/份</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🥉</div>
+        <h4>恭城油茶 — 非遗级别的"苦尽甘来"</h4>
+        <p>茶叶+姜+蒜捶打熬煮，配炒米、花生、脆果。第一口微苦，回甘悠长。被评为"中国咖啡"。<br>
+        💰 ¥10~15/人</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🍡</div>
+        <h4>街头小吃巡礼</h4>
+        <p>
+          <strong>糯香驿站</strong>：¥4糯米饭包腊肠<br>
+          <strong>徐阿姨糖水</strong>：玉米糖水清甜解暑<br>
+          <strong>阿婆桂花凉粉</strong>：¥3一碗，街头偶遇<br>
+          <strong>马蹄糕</strong>：清甜Q弹，正阳步行街有售
+        </p>
+      </div>
+    </div>
+
+    <div class="info-box info-warn" style="margin-top:14px;">
+      <strong>⚠️ 餐饮避坑：</strong> ① 西街上的啤酒鱼又贵又不正宗，去县城吃；② 不要在景区门口买"桂林三宝"（三花酒+腐乳+辣椒酱），去大超市买便宜一半；③ 20人团队用餐务必<strong>提前半天电话订大桌</strong>，旺季翻台率高不等人。
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 10 : TRANSPORT LOGISTICS -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s10">
+  <div class="slide-inner">
+    <h2>🚗🚄 交通衔接 · 无缝对接方案</h2>
+
+    <div class="two-col">
+      <div>
+        <h3>🚗 自驾组（3家）</h3>
+        <div class="card">
+          <ul>
+            <li><strong>职责：</strong>团队物流核心——承载高铁家庭行李、码头接驳</li>
+            <li><strong>对讲机：</strong>建议3车各配一台，山区信号弱时保障联络</li>
+            <li><strong>Day1：</strong>导航至桂林酒店，高速优先</li>
+            <li><strong>Day2关键：</strong>车停磨盘山码头（¥20/天）→ 全员乘船至阳朔 → 派2名司机打车回码头取车（¥150，1h）→ 开车到阳朔酒店</li>
+            <li><strong>Day3：</strong>阳朔返程，可选高速或国道（国道风景好但多山路）</li>
+            <li><strong>停车：</strong>桂林/阳朔酒店多免费停车；景区¥10~20/次</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>🚄 高铁组（2家）</h3>
+        <div class="card">
+          <ul>
+            <li><strong>去程：</strong>选<strong>桂林北站</strong>（离市区近，打车¥20）或<strong>桂林站</strong>（市中心）</li>
+            <li><strong>返程：</strong><strong>阳朔站</strong>（兴坪，距阳朔县城30分钟车程）或桂林北站</li>
+            <li><strong>行李：</strong>大件放自驾车，轻装游玩——这是双交通模式最大的优势</li>
+            <li><strong>建议去程车次：</strong>8:00前抵达桂林的早班G/D车</li>
+            <li><strong>建议返程车次：</strong>16:00后从阳朔站/桂林北站出发</li>
+            <li><strong>抢票提醒：</strong>8月暑假旺季，高铁票<strong>提前15天</strong>开售即抢！</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="route-map" style="margin-top:18px;">
+      <div class="map-title">🔀 汇合与分流示意图</div>
+      <svg viewBox="0 0 800 170" style="max-width:800px;">
+        <path d="M20,50 Q140,35 250,60 Q350,85 430,75" fill="none" stroke="#2d5f8a" stroke-width="3" stroke-dasharray="10,5"/>
+        <text x="110" y="28" font-size="9" fill="#2d5f8a" font-weight="700">🚗 自驾：高速直达</text>
+        <path d="M20,120 Q140,135 250,110 Q350,85 430,75" fill="none" stroke="#6b3a8a" stroke-width="3" stroke-dasharray="4,4"/>
+        <text x="110" y="155" font-size="9" fill="#6b3a8a" font-weight="700">🚄 高铁：桂林北/桂林站</text>
+        <circle cx="430" cy="75" r="22" fill="#1a1a1a"/>
+        <text x="430" y="71" text-anchor="middle" font-size="7" fill="#fff" font-weight="700">桂林酒店</text>
+        <text x="430" y="84" text-anchor="middle" font-size="7" fill="#ccc">汇合 ✓</text>
+        <path d="M452,75 Q550,65 640,55 Q700,48 760,40" fill="none" stroke="#c44f3c" stroke-width="2.5" stroke-dasharray="6,3"/>
+        <circle cx="760" cy="40" r="16" fill="#3a7d8c"/>
+        <text x="760" y="36" text-anchor="middle" font-size="7" fill="#fff" font-weight="700">阳朔</text>
+        <text x="600" y="40" font-size="8" fill="#c44f3c">🚢 漓江游船4h</text>
+        <circle cx="20" cy="50" r="6" fill="#2d5f8a"/>
+        <circle cx="20" cy="120" r="6" fill="#6b3a8a"/>
+        <text x="18" y="42" font-size="7" fill="#2d5f8a">出发地</text>
+        <text x="18" y="142" font-size="7" fill="#6b3a8a">出发地</text>
+        <!-- Return -->
+        <path d="M770,50 Q800,80 770,100 Q700,120 600,130 Q500,140 400,130 Q200,120 20,130" fill="none" stroke="#5a7d4a" stroke-width="2" stroke-dasharray="5,5"/>
+        <text x="400" y="148" text-anchor="middle" font-size="8" fill="#5a7d4a">Day3返程（自驾+高铁各自返回）</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 11 : DEEP CULTURE & BACKUP -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s11">
+  <div class="slide-inner">
+    <h2>🎋 深度体验 & 弹性方案</h2>
+
+    <h3>🌿 如果想走得更深……（时间充裕/兴趣家庭可选）</h3>
+    <div class="card-grid col2">
+      <div class="card">
+        <div class="card-icon">🖌️</div>
+        <h4>福利古镇 · 画扇之乡</h4>
+        <p>距阳朔8公里的千年古镇，几乎没有游客。家家户户做画扇——看老师傅一笔一画在扇面绘山水，买一把手工画扇，比任何纪念品都有意义。老街尽头"望江楼"小茶馆，推窗就是漓江。门口米粉店开了几十年，¥5一碗。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⛰️</div>
+        <h4>相公山 · 漓江第一湾</h4>
+        <p>本地人心中的阳朔NO.1观景台。登顶俯瞰漓江像绿色丝带在群峰间蜿蜒。日出时分金色阳光洒在江面——那画面值得你凌晨4点起床。门票¥60。如Day2精力充沛，可替代兴坪。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏚️</div>
+        <h4>东漓古村 · 非遗手作</h4>
+        <p>复刻桂北十二县经典民居。可亲手榨山茶油、酿米酒、做腐竹、扎草龙。适合孩子动手体验，半天时间。距桂林市区约30分钟车程。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏔️</div>
+        <h4>元和坪峡谷 · 溯溪秘境</h4>
+        <p>兴坪附近，本地人私藏的溯溪地。喀斯特山谷中密林参天，溪水清澈见底，浅滩清潭层层递进。天然空调树荫，盛夏体感直降好几度。2小时轻户外，新手和亲子都适配。</p>
+      </div>
+    </div>
+
+    <h3>🌧️ 雨天弹性方案</h3>
+    <div class="card-grid col2">
+      <div class="card">
+        <h4>桂林博物馆</h4>
+        <p>免费，了解桂林从史前到近代的完整历史。空调足，人少安静。有专门的桂林民俗展厅。</p>
+      </div>
+      <div class="card">
+        <h4>靖江王府 · 独秀峰</h4>
+        <p>明代藩王府邸，位于市中心。室内展厅+登山，雨天也可游览。¥100/人。</p>
+      </div>
+      <div class="card">
+        <h4>阳朔千古情</h4>
+        <p>宋城出品室内演出，¥280起。舞美精良，讲述桂林千年故事，孩子也会喜欢。</p>
+      </div>
+      <div class="card">
+        <h4>罗山湖水上乐园</h4>
+        <p>室内温水乐园，孩子最爱。距桂林市区约40分钟。¥120/人。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 12 : CHECKLIST & APPS -->
+<!-- ================================================================== -->
+<section class="slide slide-content" id="s12">
+  <div class="slide-inner">
+    <h2>✅ 行前清单 & 实用工具</h2>
+
+    <div class="two-col">
+      <div>
+        <h3>📋 预订清单（按优先级）</h3>
+        <div class="card">
+          <ul style="list-style:none;padding:0;">
+            <li style="margin-bottom:8px;">🔲 <strong>高铁票</strong> —— 提前15天开抢，设好闹钟！</li>
+            <li style="margin-bottom:8px;">🔲 <strong>桂林酒店</strong> —— 提前2周预订，周末易满房</li>
+            <li style="margin-bottom:8px;">🔲 <strong>阳朔酒店/民宿</strong> —— 提前2周，民宿包栋需更早</li>
+            <li style="margin-bottom:8px;">🔲 <strong>漓江游船票</strong> —— 提前1周，四星船限量</li>
+            <li style="margin-bottom:8px;">🔲 <strong>《印象·刘三姐》</strong> —— 提前1周，好座位抢手</li>
+            <li style="margin-bottom:8px;">🔲 <strong>遇龙河竹筏</strong> —— 提前3天线上取号（旺季）</li>
+            <li style="margin-bottom:8px;">🔲 <strong>旅游意外险</strong> —— 出发前购买，¥10/人/天</li>
+            <li style="margin-bottom:8px;">🔲 <strong>自驾车检查</strong> —— 胎压、机油、ETC余额、备胎</li>
+            <li style="margin-bottom:8px;">🔲 <strong>建微信群</strong> —— 分享本攻略PDF + 实时位置共享</li>
+            <li style="margin-bottom:8px;">🔲 <strong>离线地图</strong> —— 下载桂林+阳朔离线包（山区信号弱）</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>📱 必备APP & 电话</h3>
+        <div class="card">
+          <ul>
+            <li><strong>高德/百度地图</strong> —— 导航+离线地图</li>
+            <li><strong>美团/大众点评</strong> —— 餐厅查评+排队取号+门票优惠</li>
+            <li><strong>携程/飞猪</strong> —— 酒店+船票+演出票预订</li>
+            <li><strong>铁路12306</strong> —— 高铁购票+改签</li>
+            <li><strong>滴滴出行</strong> —— 桂林/阳朔打车方便</li>
+            <li style="margin-top:10px;"><strong>📞 桂林旅游服务热线：</strong>0773-2800318</li>
+            <li><strong>📞 旅游投诉：</strong>12301</li>
+            <li><strong>📞 桂林北站咨询：</strong>0773-2164842</li>
+            <li><strong>📞 阳朔站咨询：</strong>0773-8822112</li>
+          </ul>
+        </div>
+
+        <h3 style="margin-top:16px;">🌱 可持续旅游贴士</h3>
+        <div class="card">
+          <ul>
+            <li>自带水壶，减少一次性塑料瓶</li>
+            <li>不购买珊瑚/钟乳石等自然遗产制品</li>
+            <li>遇龙河竹筏上不往河里扔垃圾</li>
+            <li>古村拍照前先微笑示意，尊重村民</li>
+            <li>支持本地手工艺（如福利画扇），而非批量工业化纪念品</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SLIDE 13 : CLOSING -->
+<!-- ================================================================== -->
+<section class="slide slide-cover" id="s13" style="background:linear-gradient(165deg,#1a2f28 0%,#1f3a30 30%,#2a4a3a 60%,#1f3a30 100%);">
+  <div class="slide-inner" style="text-align:center;">
+    <div style="font-size:4rem;margin-bottom:8px;">🏞️</div>
+    <h1 style="font-size:2.4rem;margin-bottom:4px;">愿山水相见，不负期待</h1>
+    <p class="tagline" style="margin-top:12px;">
+      桂林山水甲天下，玉碧罗青意可参<br>
+      愿三日的旅程，成为孩子们童年记忆里最绿的那一笔
+    </p>
+    <div style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 16px;font-size:.85rem;">📞 旅游热线 0773-2800318</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 16px;font-size:.85rem;">🚨 投诉 12301</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 16px;font-size:.85rem;">🚑 急救 120</span>
+    </div>
+    <p style="margin-top:36px;opacity:.55;font-size:.82rem;">
+      攻略制作：人文旅行设计 · 2026年7月<br>
+      价格以实际预订为准 · 部分图片为示意
+    </p>
+  </div>
+  <svg class="cover-mountains" viewBox="0 0 1200 200" preserveAspectRatio="none" style="height:200px;">
+    <polygon points="0,200 0,90 70,50 140,75 220,30 300,65 380,40 460,55 540,15 620,50 700,30 780,60 860,20 940,45 1020,25 1100,50 1200,65 1200,200" fill="rgba(255,255,255,.06)"/>
+    <polygon points="0,200 0,120 90,85 180,110 270,70 360,100 450,65 540,90 630,60 720,95 810,60 900,90 990,65 1080,85 1200,90 1200,200" fill="rgba(255,255,255,.04)"/>
+  </svg>
+</section>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollHeight - h.clientHeight) > 0
+    ? (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+// Nav dots
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const nav = document.getElementById('navDots');
+  slides.forEach((s,i) => {
+    const a = document.createElement('a');
+    a.href = '#' + (s.id || 's'+(i+1));
+    a.title = '第'+(i+1)+'页';
+    nav.appendChild(a);
+  });
+  const dots = nav.querySelectorAll('a');
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        dots.forEach(d => d.classList.remove('active'));
+        const idx = Array.from(slides).indexOf(e.target);
+        if (dots[idx]) dots[idx].classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 }).observe.bind(null);
+  slides.forEach(s => {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          dots.forEach(d => d.classList.remove('active'));
+          const idx = Array.from(slides).indexOf(e.target);
+          if (dots[idx]) dots[idx].classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 }).observe(s);
+  });
+})();
+</script>
+
+</body>
+</html>

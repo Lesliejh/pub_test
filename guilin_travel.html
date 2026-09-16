@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>桂林阳朔四天三晚家庭游攻略 | 2026.8.13-8.16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --mountain: #2c5f4f;
+    --river: #4a90d9;
+    --sunset: #e8983e;
+    --bamboo: #7ba87f;
+    --card: #ffffff;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+    --radius: 20px;
+    --radius-sm: 12px;
+    --xingping: #8e6b3e;
+    --yangshuo: #2c5f4f;
+    --guilin: #4a6fa5;
+  }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(170deg, #e8f4f0 0%, #f0f4f1 30%, #fdf6ed 60%, #fef9f3 100%);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.12) 45%, rgba(0,0,0,0.50) 100%),
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="%23a8d8ea"/><stop offset="55%" stop-color="%23fceabb"/><stop offset="100%" stop-color="%23f8b500"/></linearGradient></defs><rect fill="url(%23sky)" width="1440" height="900"/><path d="M0 530 Q200 400 380 480 Q560 560 720 490 Q880 420 1060 500 Q1240 580 1440 460 L1440 900 L0 900Z" fill="%232c5f4f" opacity="0.7"/><path d="M0 600 Q240 510 500 580 Q760 650 1000 560 Q1240 470 1440 540 L1440 900 L0 900Z" fill="%231a3d32" opacity="0.8"/><path d="M0 680 Q300 620 600 670 Q900 720 1200 650 Q1350 610 1440 630 L1440 900 L0 900Z" fill="%234a90d9" opacity="0.55"/><path d="M0 740 Q350 690 700 730 Q1050 770 1440 710 L1440 900 L0 900Z" fill="%232c5f4f" opacity="0.9"/><ellipse cx="200" cy="370" rx="55" ry="22" fill="white" opacity="0.05"/><ellipse cx="1150" cy="290" rx="75" ry="26" fill="white" opacity="0.04"/><circle cx="720" cy="130" r="50" fill="%23f8b500" opacity="0.12"/><circle cx="720" cy="130" r="35" fill="%23fceabb" opacity="0.25"/></svg>') center/cover no-repeat;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to top, #e8f4f0 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 2; padding: 2rem; }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    animation: fadeInDown 0.8s ease-out;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 4px 32px rgba(0,0,0,0.3);
+    margin-bottom: 0.8rem;
+    animation: fadeInUp 0.8s ease-out;
+    line-height: 1.3;
+    letter-spacing: 2px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    color: rgba(255,255,255,0.92);
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.8s ease-out 0.15s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem 1.8rem;
+    color: #fff;
+    min-width: 100px;
+  }
+
+  .hero-stat .num { font-size: 2rem; font-weight: 700; line-height: 1.2; }
+  .hero-stat .lbl { font-size: 0.8rem; opacity: 0.8; letter-spacing: 1px; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ═══════════════════════════════════════════
+     LAYOUT
+     ═══════════════════════════════════════════ */
+  .container {
+    max-width: 1100px;
+    margin: -60px auto 0;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 3;
+  }
+
+  .container-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  section { margin-bottom: 3rem; }
+
+  .section-title {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--mountain);
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-title .icon { font-size: 1.8rem; }
+  .section-sub { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+  /* ═══════════════════════════════════════════
+     ROUTE OVERVIEW BAR
+     ═══════════════════════════════════════════ */
+  .route-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.8rem 2rem;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+    margin-bottom: 2rem;
+  }
+
+  .route-stop {
+    text-align: center;
+    flex: 1;
+    min-width: 90px;
+    position: relative;
+  }
+
+  .route-stop .dot {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .route-stop .stop-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .route-stop .stop-sub {
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+
+  .route-arrow {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    color: #c0c8c4;
+    padding: 0 0.3rem;
+    margin-top: -20px;
+  }
+
+  /* ═══════════════════════════════════════════
+     INFO CARDS
+     ═══════════════════════════════════════════ */
+  .info-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .info-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .info-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+  .info-card .card-emoji { font-size: 2.2rem; margin-bottom: 0.5rem; display: block; }
+  .info-card h3 { font-size: 1.15rem; color: var(--mountain); margin-bottom: 0.6rem; }
+  .info-card p, .info-card li { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+  .info-card ul { list-style: none; padding: 0; }
+  .info-card ul li::before { content: '▸ '; color: var(--bamboo); font-weight: 700; }
+
+  /* ═══════════════════════════════════════════
+     DAY CARDS
+     ═══════════════════════════════════════════ */
+  .day-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.04);
+    margin-bottom: 1.5rem;
+  }
+
+  .day-card.xingping { border-left: 5px solid var(--xingping); }
+  .day-card.yangshuo { border-left: 5px solid var(--yangshuo); }
+  .day-card.guilin   { border-left: 5px solid var(--guilin); }
+  .day-card.transit   { border-left: 5px solid var(--sunset); }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.8rem;
+  }
+
+  .day-number {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; font-weight: 900; color: #fff;
+    flex-shrink: 0;
+  }
+
+  .day-header .day-title { flex: 1; }
+  .day-header .day-title h3 { font-size: 1.3rem; margin: 0; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .day-header .day-title span { font-size: 0.85rem; color: var(--text-light); }
+  .day-header .day-label { font-size: 0.9rem; color: var(--text-light); font-weight: 500; }
+
+  .day-body { padding: 0 1.8rem 1.8rem; }
+
+  .timeline {
+    list-style: none;
+    padding: 0;
+    border-left: 2px dashed #d4e6dc;
+    margin-left: 0.5rem;
+  }
+
+  .timeline li {
+    position: relative;
+    padding: 0.55rem 0 0.55rem 1.8rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -7px; top: 1rem;
+    width: 12px; height: 12px;
+    background: var(--bamboo);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--bamboo);
+  }
+
+  .timeline .time {
+    font-weight: 700;
+    color: var(--mountain);
+    margin-right: 0.6rem;
+    font-variant-numeric: tabular-nums;
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+  }
+
+  .timeline .highlight {
+    background: linear-gradient(120deg, #fff3cd 0%, #fff3cd 100%);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .timeline .loc-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+  }
+
+  .loc-xp { background: #f0e6d8; color: #8e6b3e; }
+  .loc-ys { background: #dceee5; color: #2c5f4f; }
+  .loc-gl { background: #dce4f0; color: #4a6fa5; }
+
+  /* ═══════════════════════════════════════════
+     HOTEL CARDS
+     ═══════════════════════════════════════════ */
+  .hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .hotel-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--bamboo);
+  }
+
+  .hotel-card.xp { border-top-color: var(--xingping); }
+  .hotel-card.ys { border-top-color: var(--yangshuo); }
+  .hotel-card.gl { border-top-color: var(--guilin); }
+
+  .hotel-card h4 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+  .hotel-card .hotel-meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.8rem; }
+  .hotel-card .hotel-price { font-size: 1.6rem; font-weight: 900; color: var(--mountain); }
+  .hotel-card .hotel-price small { font-size: 0.85rem; color: var(--text-light); font-weight: 400; }
+  .hotel-card ul { list-style: none; padding: 0; margin-top: 0.5rem; }
+  .hotel-card ul li { font-size: 0.85rem; color: var(--text-light); padding: 0.15rem 0; }
+  .hotel-card ul li::before { content: '✓ '; color: var(--bamboo); font-weight: 700; }
+
+  /* ═══════════════════════════════════════════
+     WHY SECTION (planner notes)
+     ═══════════════════════════════════════════ */
+  .planner-note {
+    background: linear-gradient(120deg, #f0f7f3 0%, #f8fdf9 100%);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.8rem;
+    border: 1px solid #d4e6dc;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .planner-note strong { color: var(--mountain); }
+
+  /* ═══════════════════════════════════════════
+     TABLES
+     ═══════════════════════════════════════════ */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(0,0,0,0.06);
+    background: var(--card);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  th {
+    background: var(--mountain);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #f8fdf9; }
+
+  /* ═══════════════════════════════════════════
+     FOOD GRID
+     ═══════════════════════════════════════════ */
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .food-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.3rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    transition: transform 0.2s;
+  }
+  .food-card:hover { transform: translateY(-2px); }
+  .food-emoji { font-size: 2.4rem; flex-shrink: 0; line-height: 1; }
+  .food-info h4 { font-size: 1rem; margin-bottom: 0.2rem; color: var(--mountain); }
+  .food-info p { font-size: 0.8rem; color: var(--text-light); margin: 0; }
+
+  /* ═══════════════════════════════════════════
+     BUDGET
+     ═══════════════════════════════════════════ */
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .budget-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-top: 4px solid var(--bamboo);
+  }
+
+  .budget-card.total { border-top-color: var(--sunset); background: linear-gradient(170deg, #fff 0%, #fffdf7 100%); }
+
+  .budget-card h4 {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .budget-card .price { font-size: 2.4rem; font-weight: 900; color: var(--mountain); }
+  .budget-card .price small { font-size: 1rem; color: var(--text-light); }
+
+  /* ═══════════════════════════════════════════
+     ALERTS & TAGS
+     ═══════════════════════════════════════════ */
+  .alert-box {
+    background: linear-gradient(120deg, #fff8e6 0%, #fff3d6 100%);
+    border-left: 5px solid var(--sunset);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    font-size: 0.9rem;
+  }
+  .alert-box .alert-icon { font-size: 1.6rem; flex-shrink: 0; }
+
+  .warning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .warning-item {
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    padding: 1.1rem 1.3rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  .warning-item .warn-emoji { font-size: 1.6rem; flex-shrink: 0; }
+
+  .tag {
+    display: inline-block;
+    background: #eaf6ee;
+    color: var(--mountain);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+  .tag.warn { background: #fff3cd; color: #856404; }
+  .tag.hot { background: #ffe5e5; color: #c0392b; }
+  .tag.must { background: #e8f0fe; color: #4a6fa5; }
+
+  /* ═══════════════════════════════════════════
+     CHECKLIST
+     ═══════════════════════════════════════════ */
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.4rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .checklist li {
+    background: var(--card);
+    padding: 0.65rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .checklist li::before {
+    content: '☐';
+    font-size: 1.2rem;
+    color: var(--bamboo);
+  }
+
+  /* ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ */
+  footer {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer .divider {
+    width: 80px; height: 3px;
+    background: var(--bamboo);
+    margin: 0 auto 1rem;
+    border-radius: 2px;
+  }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+    .hero { min-height: 65vh; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-stats { gap: 0.7rem; }
+    .hero-stat { padding: 0.8rem 1rem; }
+    .hero-stat .num { font-size: 1.3rem; }
+    .container { margin-top: -30px; }
+    section { margin-bottom: 2rem; }
+    .section-title { font-size: 1.5rem; }
+    .day-body { padding: 0 1rem 1rem; }
+    .day-header { padding: 1rem; }
+    .budget-grid { grid-template-columns: 1fr; }
+    .route-bar { padding: 1rem; gap: 0; }
+    .route-arrow { font-size: 1rem; padding: 0 0.1rem; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .hero { min-height: 30vh; }
+    .info-card, .day-card, .food-card, .budget-card, .hotel-card, .warning-item { box-shadow: none; break-inside: avoid; }
+    .day-card { border: 1px solid #ddd; margin-bottom: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🏞️ FAMILY TRIP · 三家人</div>
+    <h1>桂林 · 阳朔</h1>
+    <p class="hero-subtitle">兴坪起笔 → 阳朔入画 → 桂林收官</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">4天</div>
+        <div class="lbl">8.13 → 8.16</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3站</div>
+        <div class="lbl">兴坪 → 阳朔 → 桂林</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">2+1</div>
+        <div class="lbl">自驾 + 高铁</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3家</div>
+        <div class="lbl">含年长家长</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     QUICK INFO
+     ═══════════════════════════════════════════ -->
+<div class="container">
+<section>
+  <h2 class="section-title"><span class="icon">📋</span> 行程总览</h2>
+  <p class="section-sub">一条漓江顺流而下，三晚三地各有味道</p>
+</div>
+
+<div class="container-main">
+<!-- Route bar -->
+<div class="route-bar">
+  <div class="route-stop">
+    <div class="dot" style="background:var(--xingping);">🚉</div>
+    <div class="stop-name">兴坪古镇</div>
+    <div class="stop-sub">8/13 周四晚 · 1晚</div>
+  </div>
+  <div class="route-arrow">→</div>
+  <div class="route-stop">
+    <div class="dot" style="background:var(--yangshuo);">🎋</div>
+    <div class="stop-name">阳朔县城</div>
+    <div class="stop-sub">8/14 周五晚 · 1晚</div>
+  </div>
+  <div class="route-arrow">→</div>
+  <div class="route-stop">
+    <div class="dot" style="background:var(--guilin);">🏯</div>
+    <div class="stop-name">桂林市区</div>
+    <div class="stop-sub">8/15 周六晚 · 1晚</div>
+  </div>
+  <div class="route-arrow">→</div>
+  <div class="route-stop">
+    <div class="dot" style="background:#636e72;">🏠</div>
+    <div class="stop-name">返回广州</div>
+    <div class="stop-sub">8/16 周日下午</div>
+  </div>
+</div>
+
+<!-- Planner rationale -->
+<div class="planner-note">
+  <strong>🧭 规划师思路：</strong>
+  为什么第一晚住兴坪？因为<strong>阳朔高铁站就在兴坪镇</strong>，高铁家庭出站即到，无需奔波接驳。
+  自驾家庭下午抵达后直接开进兴坪古镇停好车，晚上高铁一家出站步行即达客栈。
+  次日清晨趁游客大军未至，独享<strong>20元人民币背景的晨雾漓江</strong>——这是住在兴坪最大的隐藏福利。
+  然后沿漓江顺流而下：兴坪（山）→ 阳朔（水）→ 桂林（城），路线不回头，逻辑顺畅。
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     交通 + 住宿总览
+     ═══════════════════════════════════════════ -->
+<section>
+  <h2 class="section-title"><span class="icon">🚗</span> 交通 &amp; 住宿</h2>
+  <p class="section-sub">三晚三地，各有特色</p>
+
+  <div class="info-row" style="margin-bottom:1.5rem;">
+    <div class="info-card">
+      <span class="card-emoji">🚗</span>
+      <h3>自驾（2家）</h3>
+      <ul>
+        <li>广州 → 兴坪：约430km / 5.5h</li>
+        <li>建议<strong>9:00-10:00出发</strong>，下午15:00-16:00到</li>
+        <li>过路费约¥200-250 · 油费约¥300-400</li>
+        <li>直接导航到<strong>兴坪古镇客栈</strong></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <span class="card-emoji">🚄</span>
+      <h3>高铁（1家）</h3>
+      <ul>
+        <li>广州南 → 阳朔站：约2-2.5h</li>
+        <li>二等座约 ¥120-150/人</li>
+        <li>建议选<strong>下午出发傍晚到</strong>的车次</li>
+        <li>阳朔站 = 兴坪镇！出站就到 🎉</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <span class="card-emoji">🅿️</span>
+      <h3>停车 &amp; 接驳</h3>
+      <ul>
+        <li>兴坪客栈一般有免费停车位</li>
+        <li>高铁站到兴坪古镇核心区<strong>仅2-3km</strong></li>
+        <li>自驾车可轻松到站接人（5分钟）</li>
+        <li>不需要像去阳朔县城那样跑35km！</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hotel cards -->
+  <div class="hotel-grid">
+    <div class="hotel-card xp">
+      <h4>🏘️ 第1晚 · 兴坪古镇</h4>
+      <div class="hotel-meta">8/13 周四 | 3间房</div>
+      <div class="hotel-price">¥200-400 <small>/ 间 / 晚</small></div>
+      <ul>
+        <li>选兴坪老街或漓江边的客栈</li>
+        <li>推荐：半山云水、老地方青旅、静然居</li>
+        <li>评分4.5+，有停车位即可</li>
+        <li>性价比三站中最高 💰</li>
+      </ul>
+    </div>
+    <div class="hotel-card ys">
+      <h4>🎋 第2晚 · 阳朔县城</h4>
+      <div class="hotel-meta">8/14 周五 | 3间房</div>
+      <div class="hotel-price">¥400-700 <small>/ 间 / 晚</small></div>
+      <ul>
+        <li>推荐遇龙河畔民宿（骥马村/旧县村）</li>
+        <li>或西街周边步行可达的酒店</li>
+        <li>评分4.7+，优先有停车场的</li>
+        <li>周五房源紧张，尽快订！</li>
+      </ul>
+    </div>
+    <div class="hotel-card gl">
+      <h4>🏯 第3晚 · 桂林市区</h4>
+      <div class="hotel-meta">8/15 周六 | 3间房</div>
+      <div class="hotel-price">¥300-500 <small>/ 间 / 晚</small></div>
+      <ul>
+        <li>象山公园/杉湖/正阳步行街附近</li>
+        <li>推荐：桂林宾馆、漓江大瀑布饭店</li>
+        <li>步行可达两江四湖码头</li>
+        <li>周末桂林酒店相对阳朔好订</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:1rem; font-size:0.9rem; color:var(--text-light);">
+    🧮 住宿预算：兴坪(~¥300×3) + 阳朔(~¥550×3) + 桂林(~¥400×3) ≈ <strong>¥3,750 / 3家</strong>（每家约¥1,250）
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DAILY ITINERARY
+     ═══════════════════════════════════════════ -->
+<section>
+  <h2 class="section-title"><span class="icon">🗺️</span> 每日详细行程</h2>
+  <p class="section-sub">节奏舒适 · 避暑优先 · 老人友好</p>
+
+  <!-- ══ DAY 1: 周四 兴坪 ══ -->
+  <div class="day-card xingping">
+    <div class="day-header">
+      <div class="day-number" style="background:linear-gradient(135deg,#c9a24b,#8e6b3e);">1</div>
+      <div class="day-title">
+        <h3>周四 · 8月13日 <span class="tag">抵达日 · 兴坪集合</span></h3>
+        <span>广州出发 → 兴坪会师 → 古镇宵夜 🍻</span>
+      </div>
+      <div class="day-label">🏘️ 住：兴坪古镇</div>
+    </div>
+    <div class="day-body">
+      <ul class="timeline">
+        <li>
+          <span class="time">09:00-10:00</span>
+          🚗 自驾家庭广州出发（不用太赶，傍晚前到即可）
+        </li>
+        <li>
+          <span class="time">途中</span>
+          🛑 建议在<strong>贺州服务区</strong>休息一次，活动筋骨、补充能量
+        </li>
+        <li>
+          <span class="time">15:00-16:00</span>
+          <span class="loc-tag loc-xp">兴坪</span> 自驾家庭抵达兴坪古镇，客栈办理入住，稍作休整
+        </li>
+        <li>
+          <span class="time">16:30-17:30</span>
+          <span class="loc-tag loc-xp">兴坪</span> 趁光线正好，<strong>兴坪码头散步</strong>——漓江边、老寨山脚、古镇老街随便走走，感受黄昏前的山水
+        </li>
+        <li>
+          <span class="time">18:00-19:00</span>
+          🚄 高铁家庭抵达<strong>阳朔站</strong>，自驾车去站台接人（仅2-3km，5分钟车程！）
+        </li>
+        <li>
+          <span class="time">19:00</span>
+          🏘️ 高铁家庭入住客栈，放行李
+        </li>
+        <li>
+          <span class="time">19:30</span>
+          <span class="loc-tag loc-xp">兴坪</span> 🍽️ <strong>晚餐</strong>：兴坪古镇本地菜馆<br>
+          <small style="color:#636e72;">推荐：漓江边的大排档或古镇内的家庭菜馆，啤酒鱼、田螺酿、土鸡煲，人均 ¥60-80，比阳朔县城便宜且地道</small>
+        </li>
+        <li>
+          <span class="time">21:00</span>
+          🔥 <span class="highlight">大部队宵夜局！</span><br>
+          <small style="color:#636e72;">兴坪老街虽不如西街热闹，但胜在安静有味道——找一家江边小店，漓泉1998配烧烤/炒粉/漓江小鱼，三家人正式集结 🍺</small>
+        </li>
+      </ul>
+      <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <span class="tag must">兴坪码头</span>
+        <span class="tag">漓泉1998</span>
+        <span class="tag">古镇宵夜</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DAY 2: 周五 兴坪晨游 → 阳朔 → 刘三姐 ══ -->
+  <div class="day-card yangshuo">
+    <div class="day-header">
+      <div class="day-number" style="background:linear-gradient(135deg,#2c5f4f,#5a9e7c);">2</div>
+      <div class="day-title">
+        <h3>周五 · 8月14日 <span class="tag">精华日</span> <span class="tag warn">刘三姐!</span></h3>
+        <span>兴坪晨游 → 转场阳朔 → 十里画廊 → 印象刘三姐</span>
+      </div>
+      <div class="day-label">🏨 住：阳朔县城</div>
+    </div>
+    <div class="day-body">
+      <div class="planner-note" style="margin-bottom:1.2rem;">
+        <strong>💡 今日亮点：</strong>清晨的兴坪是一天中最美的时刻——晨雾漓江、无人的20元背景、炊烟古镇。趁8:00前游客大军未至，独享整片山水。这也是住在兴坪最大的价值。
+      </div>
+      <ul class="timeline">
+        <li>
+          <span class="time">06:30-07:00</span>
+          <span class="loc-tag loc-xp">兴坪</span> 🌅 <strong>早起！20元人民币背景打卡</strong><br>
+          <small style="color:#636e72;">导航到「兴坪码头」对面观景台，清晨人少、光线柔和、江面常有晨雾——这才是漓江最美的时刻 📸</small>
+        </li>
+        <li>
+          <span class="time">07:30</span>
+          <span class="loc-tag loc-xp">兴坪</span> 🍜 早餐：兴坪老街的桂林米粉 + 豆浆油条
+        </li>
+        <li>
+          <span class="time">08:00-09:00</span>
+          <span class="loc-tag loc-xp">兴坪</span> 🏘️ <strong>兴坪古镇深度逛</strong>——古戏台、老商铺、青石板路，顺便看看黄布倒影、九马画山（漓江边步行可达）
+        </li>
+        <li>
+          <span class="time">09:00</span>
+          🏨 退房，行李装车
+        </li>
+        <li>
+          <span class="time">09:30-10:15</span>
+          🚗 <strong>兴坪 → 阳朔县城</strong>（约35km / 40分钟）
+        </li>
+        <li>
+          <span class="time">10:30</span>
+          <span class="loc-tag loc-ys">阳朔</span> 🏨 抵达阳朔民宿，办理入住
+        </li>
+        <li>
+          <span class="time">11:00-12:00</span>
+          <span class="loc-tag loc-ys">阳朔</span> 🚲 <strong>十里画廊</strong>漫游（趁上午还不太热）<br>
+          <small style="color:#636e72;">租电瓶车 ¥50-80/辆 · 老人坐观光车 · 📸 月亮山、大榕树、蝴蝶泉外观打卡即可</small>
+        </li>
+        <li>
+          <span class="time">12:00</span>
+          🍽️ 午餐：十里画廊沿线农家菜 or 回西街吃
+        </li>
+        <li>
+          <span class="time">13:00-15:30</span>
+          🛏️ <span class="tag warn">午休避暑</span>（老人务必休息！正午体感温度可达40°C）
+        </li>
+        <li>
+          <span class="time">15:30-17:00</span>
+          <span class="loc-tag loc-ys">阳朔</span> 🚶 自由活动：西街闲逛 / 民宿休息 / 江边喝茶<br>
+          <small style="color:#636e72;">保存体力给晚上的重头戏</small>
+        </li>
+        <li>
+          <span class="time">17:00-17:45</span>
+          🍽️ <strong>提前晚餐</strong>（一定要提前吃！）<br>
+          <small style="color:#636e72;">推荐：西街附近「大师傅啤酒鱼」或「谢三姐啤酒鱼」，点菜时说明赶演出，让厨房先上</small>
+        </li>
+        <li>
+          <span class="time">18:00</span>
+          🚗 出发前往印象刘三姐剧场（提前出发，暑假人多停车慢）
+        </li>
+        <li>
+          <span class="time">19:00-19:30</span>
+          🎫 检票入场，就座
+        </li>
+        <li>
+          <span class="time">20:00-21:10</span>
+          🎭 <span class="highlight">印象·刘三姐 正式演出！</span>（约70分钟）<br>
+          <small style="color:#636e72;">张艺谋导演 · 山水实景 · 600+演员 · 世界最大山水剧场</small>
+        </li>
+        <li>
+          <span class="time">21:30</span>
+          🌃 演出结束，回西街——甜品 / 冰粉 / 轻宵夜
+        </li>
+      </ul>
+      <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <span class="tag must">20元背景晨拍</span>
+        <span class="tag">十里画廊</span>
+        <span class="tag warn">印象刘三姐</span>
+        <span class="tag">大师傅啤酒鱼</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DAY 3: 周六 阳朔 → 桂林 ══ -->
+  <div class="day-card transit">
+    <div class="day-header">
+      <div class="day-number" style="background:linear-gradient(135deg,#e8983e,#f0a84c);">3</div>
+      <div class="day-title">
+        <h3>周六 · 8月15日 <span class="tag">转场日</span></h3>
+        <span>遇龙河漂流 → 阳朔收官 → 傍晚转桂林 → 两江四湖夜游</span>
+      </div>
+      <div class="day-label">🏨 住：桂林市区</div>
+    </div>
+    <div class="day-body">
+      <div class="planner-note" style="margin-bottom:1.2rem;">
+        <strong>💡 今日亮点：</strong>遇龙河漂流一定要赶<strong>最早一班（约7:30-8:00）</strong>——清晨的遇龙河水面如镜，倒影绝美，而且不晒。这是整个阳朔行程的灵魂体验。
+      </div>
+      <ul class="timeline">
+        <li>
+          <span class="time">06:45</span>
+          🍜 早餐：桂林米粉 + 退房、行李装车
+        </li>
+        <li>
+          <span class="time">07:15</span>
+          🚗 出发前往遇龙河漂流码头
+        </li>
+        <li>
+          <span class="time">07:30-07:45</span>
+          <span class="loc-tag loc-ys">遇龙河</span> 🎋 <strong>遇龙河竹筏漂流 · 第一班！</strong><br>
+          <small style="color:#636e72;">推荐：金龙桥→旧县段（约90分钟，最精华）💰 ¥200-255/筏（2人一筏）<br>老人选水厄底→万景段（约40分钟，更平缓）💰 ¥160-200/筏</small>
+        </li>
+        <li>
+          <span class="time">09:30</span>
+          🏘️ 漂流结束，旧县古村逛逛（有几百年历史的桂北民居）
+        </li>
+        <li>
+          <span class="time">10:30</span>
+          <span class="loc-tag loc-ys">阳朔</span> 🛍️ 西街最后逛一圈 / 买阳朔手信（桂林三宝、桂花糕）
+        </li>
+        <li>
+          <span class="time">11:30</span>
+          🍽️ <strong>午餐</strong>：阳朔最后一顿——推荐「椿记烧鹅」西街店，烧鹅+啤酒鱼的完美收官
+        </li>
+        <li>
+          <span class="time">12:30-13:00</span>
+          🚗 <strong>阳朔 → 桂林市区</strong>（约65km / 1h15min）
+        </li>
+        <li>
+          <span class="time">14:00</span>
+          <span class="loc-tag loc-gl">桂林</span> 🏨 酒店入住，午休
+        </li>
+        <li>
+          <span class="time">16:00</span>
+          <span class="loc-tag loc-gl">桂林</span> 🏯 <strong>东西巷 + 正阳步行街</strong><br>
+          <small style="color:#636e72;">东西巷是桂林新修复的历史文化街区，明清风格建筑，拍照好看；正阳步行街小吃密集</small>
+        </li>
+        <li>
+          <span class="time">18:30</span>
+          🍜 <strong>晚餐</strong>：桂林市区——崇善米粉 / 阿甘酒家 / 金龙寨
+        </li>
+        <li>
+          <span class="time">19:30-20:00</span>
+          🛶 <strong>两江四湖夜游</strong>（约90分钟）<br>
+          <small style="color:#636e72;">💰 ¥190-220/人 · 日月双塔亮灯 · 杉湖榕湖桂湖木龙湖 · 建议提前网购夜游票</small>
+        </li>
+        <li>
+          <span class="time">21:30</span>
+          🌙 回酒店休息 / 正阳步行街买宵夜带回
+        </li>
+      </ul>
+      <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <span class="tag must">遇龙河漂流</span>
+        <span class="tag">旧县古村</span>
+        <span class="tag">东西巷</span>
+        <span class="tag">两江四湖</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DAY 4: 周日 桂林 → 返程 ══ -->
+  <div class="day-card guilin">
+    <div class="day-header">
+      <div class="day-number" style="background:linear-gradient(135deg,#4a6fa5,#6b8fc5);">4</div>
+      <div class="day-title">
+        <h3>周日 · 8月16日 <span class="tag">收官日</span></h3>
+        <span>象鼻山 → 靖江王府 → 买手信 → 返程广州</span>
+      </div>
+      <div class="day-label">🏠 回家</div>
+    </div>
+    <div class="day-body">
+      <ul class="timeline">
+        <li>
+          <span class="time">07:30</span>
+          🍜 早餐：<strong>老东江米粉</strong>（桂林最老牌！锅烧+卤菜粉是灵魂，记得先干捞再加汤）<br>
+          <small style="color:#636e72;">📍 多家分店，导航最近一家即可 · ¥15-20/人</small>
+        </li>
+        <li>
+          <span class="time">08:15</span>
+          🏨 退房，行李装车
+        </li>
+        <li>
+          <span class="time">08:30</span>
+          <span class="loc-tag loc-gl">桂林</span> 🐘 <strong>象鼻山公园</strong>（桂林城徽，必打卡）<br>
+          <small style="color:#636e72;">🎫 ¥55/人 · 1号门进去拍象鼻全貌角度最佳 · 约1-1.5h</small>
+        </li>
+        <li>
+          <span class="time">10:00</span>
+          <span class="loc-tag loc-gl">桂林</span> 🏯 步行到<strong>日月双塔</strong>（杉湖边，免费）——白天看和昨晚夜游是不同的味道
+        </li>
+        <li>
+          <span class="time">10:30</span>
+          <span class="loc-tag loc-gl">桂林</span> 🏛️ <strong>靖江王府·独秀峰</strong><br>
+          <small style="color:#636e72;">🎫 ¥130/人（含讲解）· 约1.5h · ⚠️ 独秀峰台阶陡峭，老人建议只逛王府院落，不登山</small>
+        </li>
+        <li>
+          <span class="time">12:00</span>
+          🍽️ <strong>告别午餐</strong>：阿甘酒家 / 金龙寨（桂林本地菜，人均 ¥60-80）
+        </li>
+        <li>
+          <span class="time">13:00-14:00</span>
+          🛍️ <strong>买手信</strong>：桂林三宝（三花酒、豆腐乳、辣椒酱）+ 桂花糕 + 桂林米粉干 + 罗汉果<br>
+          <small style="color:#636e72;">推荐去当地超市或正阳步行街特产店，比景区便宜</small>
+        </li>
+        <li>
+          <span class="time">14:30-15:00</span>
+          🏠 <strong>启程返回广州</strong><br>
+          <small style="color:#636e72;">🚗 自驾约5.5-6h，预计晚上20:30-21:00到家<br>🚄 高铁约2.5h（桂林西/桂林北 → 广州南）</small>
+        </li>
+      </ul>
+      <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <span class="tag must">象鼻山</span>
+        <span class="tag">靖江王府</span>
+        <span class="tag">老东江米粉</span>
+        <span class="tag">桂林三宝</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOD
+     ═══════════════════════════════════════════ -->
+<section>
+  <h2 class="section-title"><span class="icon">🍽️</span> 必吃美食清单</h2>
+  <p class="section-sub">桂林山水甲天下 · 阳朔美食也不差 · 兴坪更有农家味</p>
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="food-emoji">🐟</span>
+      <div class="food-info">
+        <h4>啤酒鱼</h4>
+        <p>阳朔头号招牌 · 毛骨鱼最嫩 · 大师傅/谢三姐/刘姐 · 兴坪的更正宗便宜</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🍜</span>
+      <div class="food-info">
+        <h4>桂林米粉</h4>
+        <p>锅烧卤菜粉是灵魂！先干捞再加汤 · 老东江（桂林）/ 崇善 / 又益轩</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🦪</span>
+      <div class="food-info">
+        <h4>田螺酿</h4>
+        <p>螺肉+猪肉+薄荷酿回螺壳 · 兴坪和阳朔都有 · 下酒绝配</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🥩</span>
+      <div class="food-info">
+        <h4>荔浦芋扣肉</h4>
+        <p>桂林荔浦芋头+五花肉 · 粉糯香甜 · 入口即化 · 各大餐馆均有</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🍗</span>
+      <div class="food-info">
+        <h4>椿记烧鹅</h4>
+        <p>阳朔西街店 · 皮脆肉嫩 · 搭配漓泉啤酒一绝 · 周六午餐推荐</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🐔</span>
+      <div class="food-info">
+        <h4>兴坪土鸡煲</h4>
+        <p>兴坪古镇特产 · 走地鸡+山泉水炖 · 周四晚餐首选 · 汤鲜肉香</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🦐</span>
+      <div class="food-info">
+        <h4>漓江小鱼虾</h4>
+        <p>现捞现炸 · 兴坪和阳朔河边都有 · 简单油盐就鲜美无比</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🍺</span>
+      <div class="food-info">
+        <h4>漓泉啤酒</h4>
+        <p>本地啤酒 · 清爽解暑 · 漓泉1998是经典款 · 宵夜局标配 🍻</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🍰</span>
+      <div class="food-info">
+        <h4>桂花糕</h4>
+        <p>桂林手信首选 · 甜而不腻 · 东西巷/正阳步行街 · 买回去送人</p>
+      </div>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🥤</span>
+      <div class="food-info">
+        <h4>桂林三宝</h4>
+        <p>三花酒 · 豆腐乳 · 辣椒酱 · 超市买比景区便宜一半 · 周日采购</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BUDGET
+     ═══════════════════════════════════════════ -->
+<section>
+  <h2 class="section-title"><span class="icon">💰</span> 费用预算（修订版）</h2>
+  <p class="section-sub">中档消费 · 每家人参考 · 不含购物</p>
+  <div class="budget-grid">
+    <div class="budget-card">
+      <h4>🚗 自驾家庭</h4>
+      <div class="price">¥3,300 <small>起</small></div>
+      <p style="font-size:0.85rem;color:var(--text-light);">油费+过路费+3晚住宿+门票+餐饮</p>
+    </div>
+    <div class="budget-card">
+      <h4>🚄 高铁家庭</h4>
+      <div class="price">¥2,800 <small>起</small></div>
+      <p style="font-size:0.85rem;color:var(--text-light);">高铁票+3晚住宿+门票+餐饮</p>
+    </div>
+    <div class="budget-card total">
+      <h4>📊 三家人总计</h4>
+      <div class="price">~¥9,500 <small>起</small></div>
+      <p style="font-size:0.85rem;color:var(--text-light);">兴坪1晚更省钱 · 每家约¥2,800-3,800</p>
+    </div>
+  </div>
+  <br>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>项目</th><th>单价参考</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>🚗 广州→兴坪 自驾</td><td>¥500-650/车</td><td>单程油费+过路费（约430km）</td></tr>
+        <tr><td>🚄 广州南→阳朔站</td><td>¥120-150/人</td><td>二等座，约2-2.5h</td></tr>
+        <tr><td>🏘️ 兴坪客栈</td><td>¥200-400/间</td><td>1晚，性价比最高</td></tr>
+        <tr><td>🏨 阳朔民宿</td><td>¥400-700/间</td><td>1晚，遇龙河畔或西街附近</td></tr>
+        <tr><td>🏨 桂林酒店</td><td>¥300-500/间</td><td>1晚，市中心</td></tr>
+        <tr><td>🎋 遇龙河竹筏漂流</td><td>¥200-255/筏</td><td>金龙桥→旧县（2人），90分钟精华</td></tr>
+        <tr><td>🎭 印象刘三姐</td><td>¥198-328/人</td><td>提前网购！B2/C区性价比最高</td></tr>
+        <tr><td>🐘 象鼻山公园</td><td>¥55/人</td><td>桂林城徽，必打卡</td></tr>
+        <tr><td>🏛️ 靖江王府</td><td>¥130/人</td><td>含讲解，老人可不爬独秀峰</td></tr>
+        <tr><td>🛶 两江四湖夜游</td><td>¥190-220/人</td><td>约90分钟，建议网购</td></tr>
+        <tr><td>🚲 电瓶车租赁</td><td>¥50-80/辆</td><td>十里画廊骑行半天</td></tr>
+        <tr><td>🍽️ 餐饮</td><td>¥400-600/人</td><td>全程4天，含宵夜</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     WARNINGS
+     ═══════════════════════════════════════════ -->
+<section>
+  <h2 class="section-title"><span class="icon">⚠️</span> 八月出行提醒</h2>
+  <p class="section-sub">防暑 · 防雨 · 防蚊 · 护老 · 抢票 · 停车</p>
+  <div class="warning-grid">
+    <div class="warning-item">
+      <span class="warn-emoji">☀️</span>
+      <div><strong>高温防暑</strong><br><small>午间12-15点室内午休；每人随身带水；备藿香正气水；老人尤其注意</small></div>
+    </div>
+    <div class="warning-item">
+      <span class="warn-emoji">🌧️</span>
+      <div><strong>午后雷阵雨</strong><br><small>带折叠伞+轻便雨衣（每人一份）；遇龙河漂流如遇暴雨雷电解停运；刘三姐遇雨照演发雨衣</small></div>
+    </div>
+    <div class="warning-item">
+      <span class="warn-emoji">🦟</span>
+      <div><strong>蚊虫叮咬</strong><br><small>必带驱蚊液！刘三姐演出是露天+水边，蚊子集中营；兴坪江边晚上也蚊多</small></div>
+    </div>
+    <div class="warning-item">
+      <span class="warn-emoji">👴</span>
+      <div><strong>老人关怀</strong><br><small>漂流选平缓段（水厄底→万景）；不爬独秀峰；十里画廊坐观光车不骑电瓶车；每天保证午休</small></div>
+    </div>
+    <div class="warning-item">
+      <span class="warn-emoji">🎫</span>
+      <div><strong>暑期抢票</strong><br><small>刘三姐门票<strong>立刻马上现在</strong>就订（提前3-5天）；高铁票立刻订；阳朔民宿立刻订</small></div>
+    </div>
+    <div class="warning-item">
+      <span class="warn-emoji">🅿️</span>
+      <div><strong>停车问题</strong><br><small>兴坪古镇停车相对方便；阳朔县城路窄车位少，务必订有停车场的民宿；桂林酒店一般有车位</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     KEY LOCATIONS
+     ═══════════════════════════════════════════ -->
+<section>
+  <h2 class="section-title"><span class="icon">📍</span> 关键导航坐标</h2>
+  <p class="section-sub">自驾直接搜索以下关键词</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>地点</th><th>导航关键词</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>🚉 阳朔高铁站</td><td><code>阳朔站</code></td><td>就在兴坪镇！距古镇核心区仅2-3km</td></tr>
+        <tr><td>🏘️ 兴坪20元背景</td><td><code>兴坪码头</code> 或 <code>20元人民币背景观景台</code></td><td>清晨去，人少光好 📸</td></tr>
+        <tr><td>🎋 遇龙河漂流</td><td><code>金龙桥码头</code>（精华段）或 <code>水厄底码头</code>（平缓段）</td><td>赶第一班7:30-8:00</td></tr>
+        <tr><td>🚲 十里画廊</td><td><code>十里画廊景区</code></td><td>沿途有电瓶车租赁点</td></tr>
+        <tr><td>🎭 印象刘三姐</td><td><code>印象刘三姐山水剧场</code></td><td>阳朔田家河 · 19:00前到</td></tr>
+        <tr><td>🏯 桂林东西巷</td><td><code>东西巷历史文化街区</code></td><td>桂林市中心 · 逛吃一体</td></tr>
+        <tr><td>🛶 两江四湖</td><td><code>日月湾码头</code> 或 <code>文昌桥码头</code></td><td>夜游上船点，看买的哪个码头票</td></tr>
+        <tr><td>🐘 象鼻山</td><td><code>象鼻山公园1号门</code></td><td>1号门进拍象鼻全貌最佳</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CHECKLIST
+     ═══════════════════════════════════════════ -->
+<section>
+  <h2 class="section-title"><span class="icon">✅</span> 行前准备清单</h2>
+  <p class="section-sub">出发前逐项打勾，确保万无一失</p>
+
+  <div class="planner-note" style="margin-bottom:1.5rem;">
+    <strong>🔴 紧急优先级：</strong>刘三姐门票 → 高铁票 → 阳朔民宿 → 桂林酒店 → 兴坪客栈。前三个今天就必须搞定！
+  </div>
+
+  <ul class="checklist">
+    <li><strong>🔴 购买印象刘三姐门票</strong> — 立刻！提前3-5天</li>
+    <li><strong>🔴 高铁家庭买往返车票</strong> — 立刻！</li>
+    <li><strong>🔴 预订阳朔民宿 1晚</strong> — 立刻！周五房源紧</li>
+    <li>预订兴坪古镇客栈 1晚 — 本周内</li>
+    <li>预订桂林酒店 1晚 — 本周内</li>
+    <li>购买两江四湖夜游船票 — 提前2-3天</li>
+    <li>检查车辆：轮胎、油量、ETC（自驾家庭）</li>
+    <li>防晒霜 + 宽檐帽 + 墨镜（每人）</li>
+    <li>折叠伞 + 便携雨衣（每人一份）</li>
+    <li>驱蚊水 / 驱蚊贴（必备！）</li>
+    <li>充电宝 + 数据线</li>
+    <li>老人常用药 + 藿香正气水（防暑）</li>
+    <li>身份证（高铁/入住必需）</li>
+    <li>少量现金（有些农家菜只收现金）</li>
+    <li>下载桂林/阳朔离线地图</li>
+    <li>一次性雨衣（漂流可能溅水）</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer>
+  <div class="divider"></div>
+  <p style="font-size:1.1rem;">🏞️ 兴坪起笔 → 阳朔入画 → 桂林收官</p>
+  <p style="margin-top:0.5rem;">顺漓江而下，一路山水一路酒 🍻</p>
+  <p style="margin-top:0.3rem;">祝三家人旅途愉快！周四兴坪宵夜局，不见不散 📸</p>
+  <p style="margin-top:1.5rem;opacity:0.4;">Generated with ❤️ · 2026.08.08</p>
+</footer>
+
+</div>
+
+</body>
+</html>

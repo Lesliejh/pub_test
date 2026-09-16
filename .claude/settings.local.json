@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start *)",
+      "WebSearch",
+      "Bash(python3 -c \"import markdown; print\\('md ok'\\)\")",
+      "Bash(python3 -c \"import weasyprint; print\\('weasyprint ok'\\)\")",
+      "Bash(pip3 list *)",
+      "Bash(pip list *)",
+      "Bash(pip3 install *)",
+      "Bash(python3 generate_pdf.py)",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless --disable-gpu --print-to-pdf=\"C:\\\\Users\\\\Jiahao\\\\Desktop\\\\snake\\\\桂林躺平亲子游攻略.pdf\" --no-pdf-header-footer \"C:\\\\Users\\\\Jiahao\\\\Desktop\\\\snake\\\\桂林攻略_temp.html\")",
+      "Bash(python3 gen_pdf.py)",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless --disable-gpu --print-to-pdf=\"C:\\\\Users\\\\Jiahao\\\\Desktop\\\\snake\\\\桂林躺平亲子游攻略.pdf\" --no-pdf-header-footer \"C:\\\\Users\\\\Jiahao\\\\Desktop\\\\snake\\\\temp.html\")",
+      "Bash(claude --version)",
+      "Bash(npm view *)"
+    ]
+  }
+}
